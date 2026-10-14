@@ -28,7 +28,7 @@ body::before {
   z-index: 0;
   inset: 0;
   background: url("../smu-lion.svg") 78% 46% / clamp(300px, 42vw, 620px) auto no-repeat;
-  opacity: 0.055;
+  opacity: 0.2;
   pointer-events: none;
 }
 
