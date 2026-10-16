@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Week 3 · Clustering, Case Workshop, and AI Frontier</title>
+    <link rel="stylesheet" href="../../assets/css/slides.css" />
+    <script src="../../assets/js/slides.js" defer></script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+    <div class="deck-counter" aria-live="polite"></div>
+
+    <section class="slide title-slide">
+      <div class="slide-content">
+        <h1>Clustering, Case Workshop, and AI Frontier</h1>
+        <p class="subtitle">Marketing Management · Week 3</p>
+        <p class="author">Marketing Principle #1: All customers differ<br />Yixing Chen and Wenchang Li</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Today’s workflow</h2>
+        <ol>
+          <li>Translate customer needs into measurable survey or behavioral variables.</li>
+          <li>Reduce redundant questions when several items measure the same underlying need.</li>
+          <li>Use hierarchical clustering and k-means to identify candidate segments.</li>
+          <li>Profile the groups and evaluate whether they support different marketing actions.</li>
+          <li>Extend the same logic to customer language using text embeddings.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide section-slide">
+      <div class="slide-content">
+        <p class="slide-kicker">From research to action</p>
+        <h2>The segmentation analytics chain</h2>
+        <p class="lead">Qualitative research identifies possible needs. Measurement captures them. Statistical analysis proposes groups. Managerial judgment determines whether the groups matter.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Measurement design</h2>
+        <div class="two-column">
+          <div>
+            <h3>Variables used to create segments</h3>
+            <ul>
+              <li>Importance of purchase benefits</li>
+              <li>Usage situations and functional needs</li>
+              <li>Preferences and willingness to trade off attributes</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Variables used to describe segments</h3>
+            <ul>
+              <li>Demographics and firm characteristics</li>
+              <li>Media behavior, channel, or geography</li>
+              <li>Past purchases and customer value</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Keep the variables that define groups conceptually separate from variables used later to identify or reach them.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Factor analysis</h2>
+        <ul>
+          <li>Customer surveys often contain several questions that measure closely related purchase attributes.</li>
+          <li>Factor analysis summarizes correlated questions with a smaller number of latent dimensions.</li>
+          <li>The reduction can limit redundancy and prevent one underlying need from receiving excessive weight in clustering.</li>
+          <li>Factor scores can become the inputs to cluster analysis when the survey contains many correlated items.</li>
+        </ul>
+        <p class="note">Example: convenience, schedule flexibility, and travel time may all reflect an underlying accessibility factor.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Three analyses, three questions</h2>
+        <div class="three-column">
+          <div class="plain-block"><h3>Factor analysis</h3><p>Which questions measure the same underlying need?</p></div>
+          <div class="plain-block"><h3>Cluster analysis</h3><p>Which customers have similar patterns of needs or behavior?</p></div>
+          <div class="plain-block"><h3>Classification</h3><p>Which observable characteristics predict membership for a new customer?</p></div>
+        </div>
+        <p class="note">The methods solve different problems and appear at different stages of the STP process.</p>
+      </div>
+    </section>
+
+    <section class="slide section-slide">
+      <div class="slide-content">
+        <p class="slide-kicker">Cluster analysis</p>
+        <h2>Grouping similar customers</h2>
+        <p class="lead">A clustering algorithm searches for groups with relatively small differences within groups and larger differences between groups.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>What the algorithm sees</h2>
+        <ul>
+          <li>Each row represents one customer or decision-making unit.</li>
+          <li>Each selected column represents a segmentation variable.</li>
+          <li>A distance measure converts differences between rows into a numerical definition of similarity.</li>
+          <li>The algorithm does not know the business meaning of a variable or the cost of acting on a segment.</li>
+        </ul>
+        <p class="formula">Good clustering: low within-cluster distance and high between-cluster distance</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Distance defines similarity</h2>
+        <ul>
+          <li>Euclidean distance is common for continuous, standardized variables.</li>
+          <li>Variables with large numerical ranges can dominate the calculation if the analyst does not standardize them.</li>
+          <li>Highly correlated variables can repeatedly count the same underlying difference.</li>
+          <li>Changing the distance measure or variable set can materially change the resulting segments.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Data preparation</h2>
+        <ol>
+          <li>Check missing values, impossible values, and duplicated records.</li>
+          <li>Inspect distributions and identify influential outliers.</li>
+          <li>Transform strongly skewed variables when appropriate.</li>
+          <li>Standardize variables measured on different scales.</li>
+          <li>Document which variables entered the clustering step and which remained available for profiling.</li>
+        </ol>
+        <p class="note">Preprocessing choices become part of the segmentation model.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Skew and scale</h2>
+        <div class="two-column">
+          <div>
+            <h3>Log transformation</h3>
+            <p>Spending variables often contain a long right tail. A log transformation reduces the influence of extreme values while preserving rank.</p>
+          </div>
+          <div>
+            <h3>Standardization</h3>
+            <p>Z-scores place variables on a common scale so that a category measured in large monetary units does not dominate distance.</p>
+          </div>
+        </div>
+        <p class="formula">z = (x − mean) / standard deviation</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Hierarchical clustering</h2>
+        <ul>
+          <li>The procedure begins with every customer as a separate group and repeatedly merges similar groups.</li>
+          <li>Ward’s method chooses merges that create a relatively small increase in within-cluster variation.</li>
+          <li>A dendrogram records the sequence and relative cost of the merges.</li>
+          <li>Large jumps in the merger distance suggest candidate points at which to stop combining groups.</li>
+        </ul>
+        <p class="note">Hierarchical clustering is useful for exploration, but the dendrogram does not determine the correct number of segments by itself.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Reading a dendrogram</h2>
+        <ul>
+          <li>Trace the tree from individual observations toward a single combined group.</li>
+          <li>Look for a relatively large increase in distance between consecutive mergers.</li>
+          <li>Compare solutions immediately before and after the jump.</li>
+          <li>Inspect what changes when moving from three to four clusters or from four to five.</li>
+          <li>Prefer a simpler solution when the additional cluster adds little statistical or managerial value.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>K-means clustering</h2>
+        <ol>
+          <li>Select a candidate number of clusters, <em>k</em>.</li>
+          <li>Assign initial cluster centers.</li>
+          <li>Assign every customer to the nearest center.</li>
+          <li>Update the centers and repeat until assignments stabilize.</li>
+        </ol>
+        <p class="note">K-means is efficient and interpretable, but it requires the analyst to choose <em>k</em> and can depend on initialization.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Choosing the number of clusters</h2>
+        <ul>
+          <li><strong>Separation:</strong> customers should be closer to their own group than to alternatives.</li>
+          <li><strong>Stability:</strong> modest changes in initialization, sample, or preprocessing should not destroy the solution.</li>
+          <li><strong>Parsimony:</strong> an additional group should contribute a meaningful distinction.</li>
+          <li><strong>Managerial value:</strong> the groups should imply different value propositions or actions.</li>
+          <li><strong>Identifiability:</strong> the firm needs a practical way to recognize new members.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Silhouette score</h2>
+        <ul>
+          <li>For each customer, compare average distance to its own cluster with average distance to the nearest alternative cluster.</li>
+          <li>Values near 1 indicate a well-separated observation.</li>
+          <li>Values near 0 indicate an observation close to a boundary.</li>
+          <li>Negative values suggest that another cluster may fit the observation better.</li>
+          <li>The average score helps compare candidate values of <em>k</em>, but it does not measure business usefulness.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Cluster profiling</h2>
+        <ol>
+          <li>Compare cluster means on the variables used to create the solution.</li>
+          <li>Use holdout variables to describe demographics, channels, economics, or behavior.</li>
+          <li>Read representative records near each cluster center.</li>
+          <li>Identify the need pattern that distinguishes each group.</li>
+          <li>Name the cluster only after its profile and business meaning are clear.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Statistical groups versus market segments</h2>
+        <ul>
+          <li>A compact cluster may have no different need that the firm can address.</li>
+          <li>A distinctive group may be too small or expensive to reach.</li>
+          <li>A profitable segment may require capabilities the firm does not possess.</li>
+          <li>A stable group may disappear when technology, competition, or customer preferences change.</li>
+        </ul>
+        <p class="note">Cluster analysis proposes structure. Strategy determines whether the structure deserves investment.</p>
+      </div>
+    </section>
+
+    <section class="slide section-slide">
+      <div class="slide-content">
+        <p class="slide-kicker">SPSS case workshop</p>
+        <h2>Wholesale Customers</h2>
+        <p class="lead">The dataset records annual spending by 440 customers of a wholesale distributor.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Workshop variables</h2>
+        <div class="two-column">
+          <div>
+            <h3>Clustering inputs</h3>
+            <ul>
+              <li>Fresh</li><li>Milk</li><li>Grocery</li><li>Frozen</li><li>Detergents and paper</li><li>Delicatessen</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Profiling variables</h3>
+            <ul>
+              <li>Channel</li>
+              <li>Region</li>
+              <li>Original untransformed spending values</li>
+            </ul>
+          </div>
+        </div>
+        <p class="source">UCI Machine Learning Repository, Cardoso (2013), CC BY 4.0, DOI 10.24432/C5030X.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>SPSS workflow</h2>
+        <ol>
+          <li>Import the CSV and verify variable types, ranges, and missing values.</li>
+          <li>Compute log-transformed spending variables and standardized scores.</li>
+          <li>Run hierarchical clustering with Ward’s method and inspect the dendrogram.</li>
+          <li>Compare three-cluster and four-cluster solutions.</li>
+          <li>Run k-means for the selected value of <em>k</em>.</li>
+          <li>Save cluster membership and profile the groups using original spending values, Channel, and Region.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Questions for the SPSS output</h2>
+        <ul>
+          <li>Which spending categories contribute most to the separation?</li>
+          <li>Does one cluster mainly capture extreme overall spend rather than a distinct purchasing pattern?</li>
+          <li>How different are the group sizes?</li>
+          <li>Do Channel and Region reveal a practical way to identify or reach the groups?</li>
+          <li>What business explanation could produce each profile?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Workshop decision</h2>
+        <div class="case">
+          <h3>Recommend one segmentation solution</h3>
+          <ul>
+            <li>Choose the number of clusters and explain the statistical evidence.</li>
+            <li>Describe the need or operating pattern represented by each group.</li>
+            <li>Identify one group that deserves a different offer or service model.</li>
+            <li>State how the distributor could recognize similar customers in the future.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>DentMax analytics process</h2>
+        <ul>
+          <li>Trade-show RFID data captured the time dentists spent at competing booths.</li>
+          <li>Survey data captured imaging needs, media trust, and preferences.</li>
+          <li>Past purchase behavior provided additional evidence about commercial relationships.</li>
+          <li>Cluster analysis identified Loyalists, Switchables, Generalists, and Apathetics.</li>
+          <li>Targeting then required a separate judgment about attractiveness and DentMax’s relative strength.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>DentMax targeting implications</h2>
+        <ul>
+          <li><strong>Loyalists:</strong> strong fit with image quality and diagnostic flexibility. Retention and advocacy are plausible priorities.</li>
+          <li><strong>Switchables:</strong> attractive source of growth if DentMax can credibly improve software integration and technical support.</li>
+          <li><strong>Generalists:</strong> large segment, but price sensitivity conflicts with a premium position.</li>
+          <li><strong>Apathetics:</strong> low involvement reduces the likely return from specialized investment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide section-slide">
+      <div class="slide-content">
+        <p class="slide-kicker">AI Frontier 1</p>
+        <h2>Embedding-based segmentation</h2>
+        <p class="lead">Embeddings make it possible to apply segmentation logic to open-ended customer language rather than only predefined numeric variables.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>What an embedding represents</h2>
+        <ul>
+          <li>A language model converts each customer comment into a numeric vector.</li>
+          <li>Comments with similar patterns of meaning tend to appear closer together in the vector space.</li>
+          <li>The dimensions do not have simple labels such as price sensitivity or convenience.</li>
+          <li>The analyst must return to the original comments to interpret, name, and validate the groups.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Structured and text-based segmentation</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Decision</th><th>Structured data</th><th>Customer language</th></tr></thead>
+            <tbody>
+              <tr><td>Representation</td><td>Selected survey or behavioral variables</td><td>Embedding vectors created from text</td></tr>
+              <tr><td>Similarity</td><td>Distance across standardized variables</td><td>Semantic proximity across normalized vectors</td></tr>
+              <tr><td>Interpretation</td><td>Cluster means and descriptors</td><td>Representative comments and recurring themes</td></tr>
+              <tr><td>Main risk</td><td>Variables omit important needs</td><td>Clusters reflect style, sentiment, or model choice</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Embedding workflow</h2>
+        <ol>
+          <li>Define the customer-level text unit and remove direct identifiers.</li>
+          <li>Create an embedding for every response using a consistent model.</li>
+          <li>Normalize vectors when the distance interpretation requires it.</li>
+          <li>Compare candidate values of <em>k</em> and fit the clustering model.</li>
+          <li>Read representative comments from each group and assign provisional labels.</li>
+          <li>Test whether the groups differ on outcomes, value, or feasible marketing actions.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>What the Python script does</h2>
+        <ul>
+          <li>Loads the anonymized customer feedback file.</li>
+          <li>Creates sentence embeddings with a configurable model.</li>
+          <li>Normalizes the vectors and compares candidate values of <em>k</em> with silhouette scores.</li>
+          <li>Fits k-means and saves a cluster assignment for every response.</li>
+          <li>Exports representative comments near each cluster center for interpretation.</li>
+        </ul>
+        <p class="note">The script provides a reproducible starting point. It does not automatically produce strategically valid segments.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Interpreting text clusters</h2>
+        <ul>
+          <li>Read both central examples and unusual comments within each group.</li>
+          <li>Check whether the cluster reflects a need, a use case, sentiment, writing style, or vocabulary.</li>
+          <li>Compare cluster membership with observable outcomes such as satisfaction, retention, or product usage.</li>
+          <li>Ask whether the firm can identify and reach similar customers outside the research sample.</li>
+          <li>Treat labels as hypotheses that require human review and validation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Risks and safeguards</h2>
+        <div class="two-column">
+          <div>
+            <h3>Analytical risks</h3>
+            <ul>
+              <li>Model choice changes the geometry</li>
+              <li>Short comments lack context</li>
+              <li>Small clusters may be unstable</li>
+              <li>Coherent themes may have no economic value</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Governance safeguards</h3>
+            <ul>
+              <li>Remove personal and sensitive information</li>
+              <li>Document the model and preprocessing</li>
+              <li>Review representative comments</li>
+              <li>Test stability and downstream outcomes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Workshop deliverable</h2>
+        <div class="case">
+          <h3>Short segmentation memo</h3>
+          <ul>
+            <li>Recommended number of clusters and supporting evidence</li>
+            <li>Profile and name for each cluster</li>
+            <li>One marketing action for the priority group</li>
+            <li>One method for identifying similar customers later</li>
+            <li>One limitation that could change the recommendation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Week 3 recap</h2>
+        <ul>
+          <li>Measurement and preprocessing choices determine the meaning of similarity.</li>
+          <li>Hierarchical clustering helps explore candidate structures. K-means refines a chosen solution.</li>
+          <li>The number of clusters should balance separation, stability, simplicity, and managerial value.</li>
+          <li>Profiling and targeting require evidence beyond the variables used to create the groups.</li>
+          <li>Embeddings extend segmentation to customer language, but interpretation and validation remain managerial responsibilities.</li>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>
