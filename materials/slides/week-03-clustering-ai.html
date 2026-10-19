@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Week 3 · Segmentation Analytics Workshop and AI Frontier</title>
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../assets/css/slides.css?v=7" />
+    <script src="../../assets/js/slides.js" defer></script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+    <div class="deck-counter" aria-live="polite"></div>
+
+    <!-- 1 -->
+    <section class="slide title-slide">
+      <div class="slide-content">
+        <h1>Segmentation Analytics Workshop</h1>
+        <p class="subtitle">Factor analysis, clustering, classification, and embedding-based segmentation · Week 3</p>
+        <p class="author">Marketing Principle #1: All customers differ<br />Yixing Chen and Wenchang Li</p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Agenda</h2>
+        <ol class="agenda-list">
+          <li><strong>Review</strong><br />Customer heterogeneity, STP, and the segmentation analytics sequence.</li>
+          <li><strong>Factor analysis workshop</strong><br />Turn overlapping survey items into interpretable need dimensions.</li>
+          <li><strong>Cluster analysis workshop</strong><br />Discover customer groups and evaluate a candidate solution.</li>
+          <li><strong>Discriminant and classification workshop</strong><br />Assign new customers and assess classification accuracy.</li>
+          <li><strong>AI Frontier 1</strong><br />Use text embeddings to incorporate open-ended customer language.</li>
+          <li><strong>Integration</strong><br />Compare structured, text-based, and fused segmentation.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>Review: All Customers Differ</h2>
+        <p class="lead">Customers differ in needs, constraints, identity, prior experience, and response to marketing activity.</p>
+        <ul>
+          <li>Observed purchases may hide differences when the market offers few meaningful alternatives.</li>
+          <li>A difference matters when it implies a different offer, message, price, channel, or service model.</li>
+          <li>Specialists can enter by serving a dissatisfied subgroup better than a broad provider.</li>
+          <li>The goal is not to maximize the number of segments. The goal is to identify groups that support better decisions.</li>
+        </ul>
+        <p class="note">Segmentation manages customer heterogeneity. It does not eliminate it.</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>Review: Segmenting, Targeting, and Positioning</h2>
+        <div class="sequence">
+          <div><h3>Segment</h3><p>Group customers with similar needs and verify that needs differ across groups.</p></div>
+          <div><h3>Target</h3><p>Compare market attractiveness with competitive strength and resource requirements.</p></div>
+          <div><h3>Position</h3><p>Choose the benefit and evidence that create a credible relative advantage.</p></div>
+        </div>
+        <div class="metric-row">
+          <div class="metric"><strong>Needs define</strong>Use needs and benefits to create the groups.</div>
+          <div class="metric"><strong>Descriptors locate</strong>Use observable characteristics to find and reach members.</div>
+          <div class="metric"><strong>Evidence validates</strong>Test whether groups differ on value, response, and feasible action.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide visual-slide">
+      <div class="slide-content">
+        <h2>Review: Segmentation Analytics Sequence</h2>
+        <img class="slide-image" src="../../assets/images/slides/segmentation-analytics-workflow.png" alt="Survey items move through factor analysis, cluster analysis, and classification" />
+        <p class="note">The methods answer different questions: What dimensions organize customer needs? Which customers look similar? How can the firm assign new customers to the discovered groups?</p>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide">
+      <div class="slide-content">
+        <h2>Agenda</h2>
+        <ol class="agenda-list">
+          <li><span class="muted">Review</span><br />Concepts and analytical sequence</li>
+          <li><strong>Factor analysis</strong><br />Problem, SPSS workflow, and interpretation</li>
+          <li><strong>Cluster analysis</strong><br />Problem, SPSS workflow, and evaluation</li>
+          <li><strong>Classification</strong><br />Problem, SPSS workflow, and cross-validation</li>
+          <li><strong>Embedding-based segmentation</strong><br />Customer language and fused representations</li>
+          <li><strong>AI Frontier summary</strong><br />Opportunities, risks, and decisions</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide compact">
+      <div class="slide-content split">
+        <div>
+          <h2>Factor Analysis: UrbanCart’s Survey Problem</h2>
+          <ul>
+            <li>UrbanCart wants to redesign its loyalty program around customer needs.</li>
+            <li>The survey contains 12 preference questions, many of which are strongly related.</li>
+            <li>Using all 12 items directly can overweight needs measured by several similar questions.</li>
+            <li>Managers also need a concise language for discussing what customers value.</li>
+          </ul>
+        </div>
+        <div class="case">
+          <h3>Workshop question</h3>
+          <p class="lead">Can we represent 12 survey items with a small number of interpretable latent dimensions?</p>
+          <p><strong>Data:</strong> 320 fictional loyalty members, 12 seven-point items, customer behavior, and open-ended comments.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>Factor Analysis: SPSS Workflow</h2>
+        <ol>
+          <li>Import the CSV, confirm numeric types, inspect missing values, and review item distributions.</li>
+          <li>Inspect the correlation matrix. Factor analysis needs meaningful shared variation.</li>
+          <li>Check KMO and Bartlett’s test before interpreting the solution.</li>
+          <li>Extract four factors with principal-axis factoring and use Varimax rotation for classroom interpretation.</li>
+          <li>Read the rotated loading matrix. Name each factor from the items that load together.</li>
+          <li>Save regression factor scores for every customer and inspect their distributions.</li>
+        </ol>
+        <p class="resource-link"><a href="../data/week-03/customer_segmentation_workshop.csv">Dataset</a> · <a href="../code/week-03-factor-analysis.sps">SPSS syntax</a></p>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>Factor Analysis: What We Should Learn</h2>
+        <div class="four-column">
+          <div class="plain-block"><h3>Convenience</h3><p>Speed, easy ordering, accurate availability, and simple fulfillment.</p></div>
+          <div class="plain-block"><h3>Quality</h3><p>Durability, trustworthy products, knowledgeable service, and problem resolution.</p></div>
+          <div class="plain-block"><h3>Value</h3><p>Low prices, savings, promotions, and budget efficiency.</p></div>
+          <div class="plain-block"><h3>Innovation</h3><p>New products, digital features, early access, and personalized discovery.</p></div>
+        </div>
+        <ul style="margin-top: 28px">
+          <li>A factor is a statistical summary. Its label remains a managerial interpretation.</li>
+          <li>Cross-loadings may indicate an ambiguous question rather than a new factor.</li>
+          <li>Saved factor scores become comparable inputs for the clustering workshop.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide compact">
+      <div class="slide-content split">
+        <div>
+          <h2>Cluster Analysis: UrbanCart’s Grouping Problem</h2>
+          <ul>
+            <li>Factor scores describe each customer’s relative preference for convenience, quality, value, and innovation.</li>
+            <li>UrbanCart needs groups that differ enough to justify different loyalty benefits.</li>
+            <li>The analyst must choose the number of clusters and check whether the solution is stable and interpretable.</li>
+            <li>Cluster membership alone does not determine which group should be targeted.</li>
+          </ul>
+        </div>
+        <div class="case">
+          <h3>Workshop question</h3>
+          <p class="lead">Which grouping best balances statistical separation, simplicity, and managerial usefulness?</p>
+          <p>We will compare hierarchical evidence with a four-cluster k-means solution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>Cluster Analysis: SPSS Workflow</h2>
+        <ol>
+          <li>Open the `.sav` file created by the factor-analysis syntax and verify the four saved factor scores.</li>
+          <li>Run hierarchical clustering with Ward’s method and squared Euclidean distance.</li>
+          <li>Inspect the dendrogram and agglomeration schedule for meaningful jumps in merger distance.</li>
+          <li>Compare plausible values of <em>k</em>. Avoid choosing a solution from one statistical signal alone.</li>
+          <li>Run four-cluster k-means and save cluster membership and distance to the assigned center.</li>
+          <li>Profile clusters with spend, frequency, digital share, discount use, tenure, and satisfaction.</li>
+        </ol>
+        <p class="resource-link"><a href="../data/week-03/customer_segmentation_workshop.csv">Dataset</a> · <a href="../code/week-03-cluster-analysis.sps">SPSS syntax</a></p>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>Cluster Analysis: What Makes a Useful Solution?</h2>
+        <div class="two-column">
+          <div>
+            <h3>Statistical checks</h3>
+            <ul>
+              <li>Within-cluster similarity and between-cluster separation</li>
+              <li>Reasonable group sizes and no cluster driven only by extreme values</li>
+              <li>Stability across starting values and small changes in the sample</li>
+              <li>Consistent patterns in variables not used to create the groups</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Managerial checks</h3>
+            <ul>
+              <li>A distinct need pattern that the firm can address</li>
+              <li>A practical method to identify and reach members</li>
+              <li>Different economics or response to marketing action</li>
+              <li>Names that summarize evidence rather than stereotypes</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">A cluster becomes a market segment only after it supports a different and valuable action.</p>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide compact">
+      <div class="slide-content split">
+        <div>
+          <h2>Discriminant and Classification Analyses: Assignment Problem</h2>
+          <ul>
+            <li>The research survey identifies segments, but most future customers will not complete the full 12-item instrument.</li>
+            <li>UrbanCart already observes age, income, spend, frequency, digital share, discount share, tenure, and satisfaction.</li>
+            <li>Management wants a practical assignment rule for CRM and campaign execution.</li>
+          </ul>
+        </div>
+        <div class="case">
+          <h3>Workshop question</h3>
+          <p class="lead">Can observable customer characteristics classify new customers with acceptable accuracy?</p>
+          <p>Misclassification costs matter. A wrong assignment can produce an irrelevant benefit or an uneconomic offer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>Discriminant and Classification Analyses: SPSS Workflow</h2>
+        <ol>
+          <li>Use the known synthetic segment code as the group variable.</li>
+          <li>Use observable descriptors and behavior as predictors. Keep the original need items out of the assignment rule.</li>
+          <li>Inspect group means, Box’s M, standardized coefficients, and structure correlations.</li>
+          <li>Review canonical functions to understand which characteristics separate the groups.</li>
+          <li>Compare original and leave-one-out cross-validated classifications.</li>
+          <li>Read the confusion matrix by segment. Overall accuracy can hide a weak result for one important group.</li>
+        </ol>
+        <p class="resource-link"><a href="../data/week-03/customer_segmentation_workshop.csv">Dataset</a> · <a href="../code/week-03-discriminant-classification.sps">SPSS syntax</a></p>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide section-slide">
+      <div class="slide-content">
+        <p class="slide-kicker">AI Frontier 1</p>
+        <h2>Embedding-Based Segmentation</h2>
+        <p class="lead">Embeddings convert open-ended customer language into numeric representations that preserve semantic similarity.</p>
+        <p class="note">The opportunity is to recover needs that predefined survey questions did not anticipate.</p>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="slide visual-slide compact">
+      <div class="slide-content">
+        <h2>Strengthening the UrbanCart Cluster Analysis with Embeddings</h2>
+        <img class="slide-image" src="../../assets/images/slides/embedding-segmentation.png" alt="Structured data and customer language combine to create richer customer segments" />
+        <div class="metric-row">
+          <div class="metric"><strong>Structured baseline</strong>Cluster standardized survey and behavioral variables.</div>
+          <div class="metric"><strong>Text representation</strong>Encode each open-ended comment with a sentence-transformer model.</div>
+          <div class="metric"><strong>Fused solution</strong>Combine normalized structured features and embeddings, then compare separation, stability, and business meaning.</div>
+        </div>
+        <p class="resource-link"><a href="../code/week-03-embedding-segmentation.py">Python workshop code</a> · <a href="https://www.sbert.net/docs/quickstart.html">Sentence Transformers documentation</a></p>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="slide compact">
+      <div class="slide-content">
+        <h2>AI Frontier 1: Takeaways</h2>
+        <ul>
+          <li>Embeddings add customer meaning that fixed survey questions may omit, but the dimensions are not directly interpretable.</li>
+          <li>Structured variables and customer language provide complementary evidence. A fused representation can strengthen or distort the segmentation.</li>
+          <li>Model choice, text length, language, and preprocessing change the geometry of the embedding space.</li>
+          <li>Representative comments help name groups, but labels require human review and should remain provisional.</li>
+          <li>Privacy review must remove personal and sensitive information before customer text enters the workflow.</li>
+          <li>The final test remains managerial: do the groups differ in value, response, reachability, and feasible action?</li>
+        </ul>
+        <p class="source">Workshop data are synthetic. Embedding implementation follows the Sentence Transformers quickstart and scikit-learn clustering workflow.</p>
+      </div>
+    </section>
+  </body>
+</html>
