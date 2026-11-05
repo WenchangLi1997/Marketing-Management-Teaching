@@ -11,7 +11,6 @@
 
   const labels = [
     ["slides", "Slides"],
-    ["pdf", "PDF"],
     ["data", "Data"],
     ["code", "Code"],
     ["other", "Other materials"],

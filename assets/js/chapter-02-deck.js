@@ -2,14 +2,24 @@
   "use strict";
 
   const deck = document.getElementById("deck");
-  const source = new Map(window.chapter2Content.slides.map(slide => [slide.number, slide]));
+  const source = new Map(window.chapter2Content.slides.map(slide => [String(slide.number), slide]));
+  const revisions = window.chapter2Revisions || {};
   const fontStack = '"Garamond", "EB Garamond", Georgia, serif';
-  const numbers = deck.dataset.slides.split(",").flatMap(part => {
-    const [start, end = start] = part.split("-").map(Number);
-    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
-  });
+  const slideKeys = deck.dataset.slides.split(",").flatMap(rawPart => {
+    const part = rawPart.trim();
+    const range = part.match(/^(\d+)-(\d+)$/);
+    if (!range) return [part];
+    const start = Number(range[1]);
+    const end = Number(range[2]);
+    return Array.from({ length: end - start + 1 }, (_, index) => String(start + index));
+  }).filter(key => !revisions[key]?.hidden);
   const rgb = value => `rgb(${value & 255}, ${(value >> 8) & 255}, ${(value >> 16) & 255})`;
   const textOf = shape => (shape.paragraphs || []).map(paragraph => paragraph.text).join(" ").trim();
+  const smartPunctuation = value => value
+    .replace(/"([^"\n]+)"/g, "“$1”")
+    .replace(/([\p{L}\p{N}])'([\p{L}\p{N}])/gu, "$1’$2")
+    .replace(/(^|[\s([{])"(?=\S)/g, "$1“")
+    .replace(/"(?=$|[\s,.;:!?)}\]])/g, "”");
   const isFooter = shape => /^(Footer|Slide Number)/i.test(shape.name) || /Palmatier/i.test(textOf(shape));
   const isFullBleed = shape =>
     shape.asset && shape.x <= 10 && shape.y <= 5 && shape.w >= 700 && shape.h >= 530;
@@ -94,9 +104,9 @@
 
         for (const run of paragraph.runs?.length ? paragraph.runs : [{ text: paragraph.text }]) {
           const span = document.createElement("span");
-          span.textContent = run.text
+          span.textContent = smartPunctuation(run.text
             .replace(/[\r\n\v\f]+$/g, "")
-            .replace(/[\uF0E0\uF0E8]/g, "→");
+            .replace(/[\uF0E0\uF0E8]/g, "→"));
           span.style.fontFamily = fontStack;
           if (run.size) span.style.fontSize = `${run.size * paragraphScale}px`;
           if (run.bold === -1) span.style.fontWeight = "700";
@@ -117,8 +127,11 @@
     return null;
   }
 
-  numbers.forEach((number, index) => {
-    const shapes = source.get(number).shapes;
+  slideKeys.forEach((key, index) => {
+    const revision = revisions[key];
+    const sourceSlide = source.get(key);
+    const shapes = sourceSlide?.shapes || [];
+    const number = Number.isFinite(Number(key)) ? Number(key) : key;
     const fullBleed = shapes.some(isFullBleed);
     const embeddedMasterIcon = shapes.some(
       shape => isDominantImage(shape) && shape.x > 20 && shape.y >= 30 && shape.y < 60 && shape.h > 480
@@ -126,42 +139,54 @@
 
     const slide = document.createElement("section");
     slide.className = "slide";
-    slide.id = `slide-${number}`;
-    slide.setAttribute("aria-label", `Chapter 2, original slide ${number}`);
+    slide.id = `slide-${key}`;
+    slide.setAttribute("aria-label", revision?.ariaLabel || `Chapter 2, slide ${key}`);
 
     const canvas = document.createElement("div");
     canvas.className = "ppt-canvas";
+    if (revision?.className) canvas.classList.add(...revision.className.split(/\s+/));
     if (number === 1) canvas.classList.add("cover");
     if (fullBleed) canvas.classList.add("full-bleed");
     if (embeddedMasterIcon) canvas.classList.add("embedded-master-icon");
 
-    for (const shape of shapes) {
-      if (isFooter(shape)) continue;
-      if (number === 1 && shape.asset) continue;
-      const element = renderObject(shape, number);
-      if (element) canvas.append(element);
-    }
-
-    for (const line of window.chapter2Ocr?.[number] || []) {
-      if (/Palmatier/i.test(line.text)) continue;
-      const box = document.createElement("div");
-      box.className = "ocr-text";
-      box.contentEditable = "true";
-      box.spellcheck = false;
-      box.dataset.targetWidth = line.w + 1;
-      const span = document.createElement("span");
-      span.textContent = line.text;
-      box.append(span);
-      Object.assign(box.style, {
-        left: `${line.x - 2}px`,
-        top: `${line.y - 2}px`,
-        width: `${line.w + 5}px`,
-        height: `${line.h + 5}px`,
-        backgroundColor: line.bg,
-        color: line.fg,
-        fontSize: `${Math.max(9, line.h * 1.03)}px`
+    if (revision?.html) {
+      const custom = document.createElement("div");
+      custom.className = "custom-slide";
+      custom.innerHTML = revision.html;
+      custom.querySelectorAll("[data-editable]").forEach(element => {
+        element.contentEditable = "true";
+        element.spellcheck = false;
       });
-      canvas.append(box);
+      canvas.append(custom);
+    } else {
+      for (const shape of shapes) {
+        if (isFooter(shape)) continue;
+        if (number === 1 && shape.asset) continue;
+        const element = renderObject(shape, number);
+        if (element) canvas.append(element);
+      }
+
+      for (const line of window.chapter2Ocr?.[number] || []) {
+        if (/Palmatier/i.test(line.text)) continue;
+        const box = document.createElement("div");
+        box.className = "ocr-text";
+        box.contentEditable = "true";
+        box.spellcheck = false;
+        box.dataset.targetWidth = line.w + 1;
+        const span = document.createElement("span");
+        span.textContent = smartPunctuation(line.text);
+        box.append(span);
+        Object.assign(box.style, {
+          left: `${line.x - 2}px`,
+          top: `${line.y - 2}px`,
+          width: `${line.w + 5}px`,
+          height: `${line.h + 5}px`,
+          backgroundColor: line.bg,
+          color: line.fg,
+          fontSize: `${Math.max(9, line.h * 1.03)}px`
+        });
+        canvas.append(box);
+      }
     }
 
     if (embeddedMasterIcon) {
@@ -182,13 +207,13 @@
     progress.className = "slide-progress";
     progress.setAttribute("aria-hidden", "true");
     const progressValue = document.createElement("span");
-    progressValue.style.width = `${((index + 1) / numbers.length) * 100}%`;
+    progressValue.style.width = `${((index + 1) / slideKeys.length) * 100}%`;
     progress.append(progressValue);
     canvas.append(progress);
 
     const pageNumber = document.createElement("div");
     pageNumber.className = "slide-number";
-    pageNumber.textContent = index + 1;
+    pageNumber.textContent = revision?.pageNumber || key;
     pageNumber.setAttribute("aria-hidden", "true");
     canvas.append(pageNumber);
 
@@ -249,9 +274,9 @@
     const backward = ["ArrowUp", "ArrowLeft", "PageUp"];
     if (!forward.includes(event.key) && !backward.includes(event.key)) return;
     event.preventDefault();
-    const current = Math.min(numbers.length - 1, Math.round(scrollY / innerHeight));
+    const current = Math.min(slideKeys.length - 1, Math.round(scrollY / innerHeight));
     const direction = forward.includes(event.key) ? 1 : -1;
-    const next = Math.max(0, Math.min(numbers.length - 1, current + direction));
+    const next = Math.max(0, Math.min(slideKeys.length - 1, current + direction));
     deck.children[next].scrollIntoView({ behavior: "smooth" });
   });
 })();

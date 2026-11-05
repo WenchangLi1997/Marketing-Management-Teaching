@@ -21,7 +21,7 @@ window.courseData = {
       number: 2,
       title: "MP#1: Introduction and approaches for managing customer heterogeneity",
       description:
-        "Chapter 2, original slides 1–51: introduction to customer heterogeneity and the evolution, STP, and customer-centric approaches for managing it. Includes the original Sears, Spotify, MBA program, and Sainsbury’s examples.",
+        "Customer heterogeneity, the evolution of approaches for managing it, and the STP and customer-centric approaches. Updated cases include Macy’s versus TJ Maxx, the U.S. OTC hearing-aid market, Spotify, an MBA program, and Sainsbury’s.",
       resources: {
         slides: [
           { label: "Web", url: "./materials/slides/week-02-segmentation.html" },
@@ -33,7 +33,7 @@ window.courseData = {
       number: 3,
       title: "MP#1: Framework and examples for managing customer heterogeneity",
       description:
-        "Chapter 2, original slides 52–64 and 69–81: inputs, outputs, and process in the managing customer heterogeneity framework, followed by the original STP and DentMax examples. The takeaways and readings sections are reserved for later revision.",
+        "The inputs, outputs, and process of the customer heterogeneity framework, followed by AI Frontiers on embedding-based segmentation and a guided EMBA segmentation homework workshop.",
       resources: {
         slides: [
           { label: "Web", url: "./materials/slides/week-03-clustering-ai.html" },
