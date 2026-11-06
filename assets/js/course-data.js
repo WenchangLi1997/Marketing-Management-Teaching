@@ -43,18 +43,27 @@ window.courseData = {
     },
     {
       number: 4,
-      title: "MP#2: Customer dynamics and AER",
+      title: "MP#2: Introduction and approaches for managing customer dynamics",
       description:
-        "Customer needs and behaviors change over time. This week introduces acquisition, expansion, and retention as a framework for managing those changes.",
-      resources: {},
+        "Why customer needs and behavior change over time, followed by the principal approaches for managing those changes: lifecycle and AER logic, hidden Markov models, customer lifetime value, RFM, lost-customer analysis, and choice models. The opening case contrasts Nike and HOKA.",
+      resources: {
+        slides: [
+          { label: "Web", url: "./materials/slides/week-04-customer-dynamics.html" },
+          { label: "PDF", url: "./materials/slides/week-04-customer-dynamics.pdf" },
+        ],
+      },
     },
     {
       number: 5,
-      title: "MP#2: Customer transitions, CLV, and case workshop",
+      title: "MP#2: Framework and case workshop for managing customer dynamics",
       description:
-        "Customer transitions and customer lifetime value provide the analytical foundation for deciding which relationships to acquire, develop, or retain.",
-      ai: "AI Frontier 2: Sequential customer prediction",
-      resources: {},
+        "The customer-dynamics framework connects longitudinal customer and marketing data to dynamic segmentation, AER positioning, and stage-specific actions. Hotel, Markstrat, and TKL workshops turn the framework into managerial decisions.",
+      resources: {
+        slides: [
+          { label: "Web", url: "./materials/slides/week-05-customer-dynamics-workshop.html" },
+          { label: "PDF", url: "./materials/slides/week-05-customer-dynamics-workshop.pdf" },
+        ],
+      },
     },
     {
       number: 6,
