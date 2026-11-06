@@ -45,11 +45,14 @@ window.courseData = {
       number: 4,
       title: "MP#2: Introduction and approaches for managing customer dynamics",
       description:
-        "Why customer needs and behavior change over time, followed by the principal approaches for managing those changes: lifecycle and AER logic, hidden Markov models, customer lifetime value, RFM, lost-customer analysis, and choice models. The opening case contrasts Nike and HOKA.",
+        "Why customer needs and behavior change over time, followed by the principal approaches for managing those changes: lifecycle and AER logic, hidden Markov models, customer lifetime value, RFM, lost-customer analysis, and choice models. Cases include Nike versus HOKA and Blue Apron’s customer economics.",
       resources: {
         slides: [
           { label: "Web", url: "./materials/slides/week-04-customer-dynamics.html" },
           { label: "PDF", url: "./materials/slides/week-04-customer-dynamics.pdf" },
+        ],
+        other: [
+          { label: "Blue Apron case access", url: "https://store.hbr.org/product/blue-apron-turning-around-the-struggling-meal-kit-market-leader/W73C09" },
         ],
       },
     },
@@ -57,11 +60,15 @@ window.courseData = {
       number: 5,
       title: "MP#2: Framework and case workshop for managing customer dynamics",
       description:
-        "The customer-dynamics framework connects longitudinal customer and marketing data to dynamic segmentation, AER positioning, and stage-specific actions. Hotel, Markstrat, and TKL workshops turn the framework into managerial decisions.",
+        "The customer-dynamics framework connects longitudinal customer and marketing data to managerial decisions. In the Madrigal workshop, students use four years of transaction records to audit customer growth, heterogeneity, value, and segmentation before recommending a sustainable growth strategy.",
       resources: {
         slides: [
           { label: "Web", url: "./materials/slides/week-05-customer-dynamics-workshop.html" },
           { label: "PDF", url: "./materials/slides/week-05-customer-dynamics-workshop.pdf" },
+        ],
+        other: [
+          { label: "Madrigal case access", url: "https://store.hbr.org/product/madrigal-conducting-a-customer-base-audit/524046" },
+          { label: "Customer-Base Audit discussion guide", url: "https://dhjhkxawhe8q4.cloudfront.net/penn-university-press/wp-content/uploads/2023/12/04095250/The-Customer-Base-Audit-Discussion-Guide.pdf" },
         ],
       },
     },

@@ -616,6 +616,85 @@ body {
 .tkl-case > div { padding: 18px; background: #f2f6f7; }
 .tkl-results { grid-template-columns: 1fr 1fr; }
 
+/* CLV cases: Blue Apron and Madrigal */
+.blue-apron-context { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px 26px; }
+.blue-apron-story .lead { margin: 0 0 15px; font-size: 19px; line-height: 1.25; }
+.blue-apron-story .slide-list li { margin-bottom: 10px; font-size: 16px; line-height: 1.25; }
+.case-facts { display: grid; gap: 10px; }
+.case-facts section { padding: 13px 16px; border-left: 5px solid var(--teal); background: #f2f6f7; }
+.case-facts strong, .case-facts span { display: block; }
+.case-facts strong { color: #14374d; font-size: 21px; }
+.case-facts span { margin-top: 3px; font-size: 14px; line-height: 1.18; }
+.blue-apron-context .discussion-question { grid-column: 1 / -1; margin: 0; padding: 9px 14px; font-size: 15px; line-height: 1.15; }
+.blue-apron-slide .slide-source { margin-top: 7px; font-size: 8.5px; }
+.blue-apron-slide .custom-body { height: 375px; }
+
+.retention-case-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: center; }
+.retention-chart { position: relative; height: 305px; padding: 6px 4px 28px 34px; }
+.retention-chart svg { width: 100%; height: 250px; overflow: visible; }
+.retention-chart .axis { stroke: #82939b; stroke-width: 1.5; }
+.retention-chart .cohort { fill: none; stroke-width: 4; }
+.retention-chart .cohort.early { stroke: #143f62; }
+.retention-chart .cohort.middle { stroke: #16798b; }
+.retention-chart .cohort.late { stroke: #9aaab0; }
+.retention-y { position: absolute; top: 123px; left: -32px; width: 110px; color: #55636a; font-size: 13px; transform: rotate(-90deg); }
+.retention-x { position: absolute; right: 28px; bottom: 7px; color: #55636a; font-size: 13px; }
+.cohort-legend { display: flex; gap: 16px; margin: -3px 0 0 47px; font-size: 12px; }
+.cohort-legend span::before { content: ""; display: inline-block; width: 18px; height: 3px; margin: 0 6px 3px 0; background: #143f62; }
+.cohort-legend .middle-label::before { background: #16798b; }
+.cohort-legend .late-label::before { background: #9aaab0; }
+.retention-questions h2 { color: #14374d; font-size: 22px; }
+.retention-questions .slide-list { margin-bottom: 14px; }
+.retention-questions .slide-list li { margin-bottom: 10px; font-size: 16px; line-height: 1.24; }
+.case-data-note { padding: 11px 13px; color: #14374d; background: #e5f1f3; font-size: 13px; line-height: 1.18; }
+
+.blue-apron-economics { display: grid; gap: 20px; }
+.clv-chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.clv-chain section { min-height: 104px; padding: 14px; border-top: 5px solid var(--teal); background: #f2f6f7; }
+.clv-chain strong, .clv-chain span { display: block; }
+.clv-chain strong { color: #14374d; font-size: 18px; }
+.clv-chain span { margin-top: 8px; font-size: 14px; line-height: 1.2; }
+.acquisition-decisions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.acquisition-decisions section { padding: 15px; border-left: 4px solid var(--teal); }
+.acquisition-decisions h2 { color: #14374d; font-size: 17px; line-height: 1.12; }
+.acquisition-decisions p { margin-bottom: 0; font-size: 14px; line-height: 1.22; }
+.case-access { display: flex; align-items: center; justify-content: space-between; margin: 0; padding: 9px 13px; background: #e5f1f3; font-size: 12px; }
+.case-access a { color: #143f62; font-weight: 700; text-decoration: underline; }
+.case-access span { color: #55636a; }
+
+.madrigal-opening { display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; align-items: center; }
+.madrigal-opening .lead { margin-top: 0; font-size: 19px; line-height: 1.28; }
+.madrigal-opening .slide-list li { margin-bottom: 11px; font-size: 16px; line-height: 1.24; }
+.madrigal-opening .discussion-question { margin: 0; padding: 24px; font-size: 19px; line-height: 1.35; }
+.madrigal-slide .slide-source { margin-top: 10px; font-size: 9px; }
+.madrigal-data { display: grid; grid-template-columns: 1fr .72fr 1fr; gap: 20px; align-items: stretch; }
+.role-column, .analysis-unit { padding: 18px; background: #f2f6f7; }
+.role-column h2, .analysis-unit h2 { color: #14374d; font-size: 20px; }
+.role-column p, .analysis-unit p { font-size: 15px; line-height: 1.24; }
+.transaction-cube { display: grid; align-content: center; gap: 8px; padding: 16px; color: #fff; background: #143f62; }
+.transaction-cube span { padding: 9px; border: 1px solid rgba(255,255,255,.4); text-align: center; font-size: 14px; }
+.transaction-cube strong { margin-top: 8px; color: #fff; text-align: center; font-size: 16px; }
+.audit-lenses { display: grid; grid-template-columns: 1fr 1fr; gap: 17px 24px; }
+.audit-lenses section { position: relative; min-height: 145px; padding: 17px 18px 17px 66px; border-top: 5px solid var(--teal); background: #f2f6f7; }
+.audit-lenses span { position: absolute; top: 18px; left: 18px; color: var(--teal); font-size: 25px; }
+.audit-lenses h2 { margin-bottom: 7px; color: #14374d; font-size: 20px; }
+.audit-lenses p { margin: 0; font-size: 15px; line-height: 1.24; }
+.audit-plan { display: grid; gap: 10px; }
+.audit-plan section { display: grid; grid-template-columns: 54px 1fr; align-items: center; min-height: 76px; border-left: 4px solid var(--teal); background: #f2f6f7; }
+.audit-plan section > span { color: var(--teal); text-align: center; font-size: 26px; }
+.audit-plan section > div { padding: 10px 16px; }
+.audit-plan h2 { margin: 0 0 2px; color: #14374d; font-size: 18px; }
+.audit-plan p { margin: 0; font-size: 14px; line-height: 1.18; }
+.madrigal-deliverable { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.madrigal-deliverable > div { min-height: 270px; padding: 20px; border-top: 5px solid var(--teal); background: #f2f6f7; }
+.madrigal-deliverable h2 { color: #14374d; font-size: 21px; }
+.madrigal-deliverable .slide-list li { margin-bottom: 11px; font-size: 16px; line-height: 1.24; }
+.madrigal-deliverable + .case-access { margin-top: 14px; }
+.dynamics-takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.dynamics-takeaways section { min-height: 245px; padding: 22px; border-top: 6px solid var(--teal); background: #f2f6f7; }
+.dynamics-takeaways strong { display: block; color: #14374d; font-size: 22px; line-height: 1.15; }
+.dynamics-takeaways p { margin-top: 16px; font-size: 17px; line-height: 1.3; }
+
 @media print {
   .custom-slide { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }

@@ -20,9 +20,8 @@
   const week5Agenda = active => slide("Agenda", `
     <div class="vertical-agenda dynamics-agenda week-five-agenda">
       <section class="${active === 1 ? "active" : ""}"><span>01</span><div><h2 data-editable>Framework</h2><p data-editable>Inputs, outputs, and the process for managing customer dynamics</p></div></section>
-      <section class="${active === 2 ? "active" : ""}"><span>02</span><div><h2 data-editable>Case workshop</h2><p data-editable>Hotel and Markstrat examples of changing customer segments</p></div></section>
-      <section class="${active === 3 ? "active" : ""}"><span>03</span><div><h2 data-editable>Takeaways</h2><p data-editable>Core ideas linking AER, HMM, CLV, and choice models</p></div></section>
-      <section class="${active === 4 ? "active" : ""}"><span>04</span><div><h2 data-editable>Analytics case</h2><p data-editable>Preempting and preventing customer churn at TKL</p></div></section>
+      <section class="${active === 2 ? "active" : ""}"><span>02</span><div><h2 data-editable>Case workshop</h2><p data-editable>Madrigal customer-base audit using four years of transactions</p></div></section>
+      <section class="${active === 3 ? "active" : ""}"><span>03</span><div><h2 data-editable>Takeaways</h2><p data-editable>Customer dynamics as a source of sustainable growth decisions</p></div></section>
     </div>
   `, "agenda-slide");
 
@@ -167,6 +166,72 @@
         <div class="clv-example"><div><h2 data-editable>Inputs</h2><table><tbody><tr><th>Annual margin</th><td data-editable>$100</td></tr><tr><th>Annual marketing cost</th><td data-editable>$10</td></tr><tr><th>Retention rate</th><td data-editable>65%</td></tr><tr><th>Discount rate</th><td data-editable>5%</td></tr><tr><th>Acquisition cost</th><td data-editable>$65</td></tr></tbody></table></div><div class="calculation"><h2 data-editable>Calculation</h2><p data-editable>($100 − $10) / (1 − 0.65 + 0.05) − $65</p><strong data-editable>CLV = $160</strong><span data-editable>The positive value supports acquisition, subject to uncertainty and comparison with alternative customers.</span></div></div>
       `)
     },
+    "34": {
+      html: slide("Blue Apron: Growth Versus Customer Economics", `
+        <div class="blue-apron-context">
+          <div class="blue-apron-story">
+            <p class="lead" data-editable>Blue Apron led the U.S. meal kit market while the category grew quickly. Customer metrics, however, pointed to a weaker economic model.</p>
+            <ul class="slide-list" data-editable>
+              <li>The company kept adding customers as acquisition cost increased.</li>
+              <li>Later customer cohorts generated less revenue on average than earlier cohorts.</li>
+              <li>Sales growth could therefore coexist with declining value per acquired customer.</li>
+            </ul>
+          </div>
+          <div class="case-facts">
+            <section><strong data-editable>53%</strong><span data-editable>U.S. meal kit market share reported for 2016</span></section>
+            <section><strong data-editable>Rising CAC</strong><span data-editable>Customer acquisition became more expensive</span></section>
+            <section><strong data-editable>Lower cohort revenue</strong><span data-editable>Newer customers produced less revenue on average</span></section>
+          </div>
+          <p class="discussion-question" data-editable>Should management keep pursuing customer and revenue growth, or improve retention, acquisition quality, and CLV?</p>
+        </div>
+        ${source("Source: McCarthy and Schwartz, Blue Apron: Turning Around the Struggling Meal Kit Market Leader, WDI Publishing, 2018. Case product W73C09.")}
+      `, "blue-apron-slide")
+    },
+    "35": {
+      html: slide("Blue Apron: Retention Curves and Cohort Quality", `
+        <div class="retention-case-layout">
+          <div class="retention-chart" role="img" aria-label="Schematic retention curves showing stronger early cohorts and weaker later cohorts">
+            <span class="retention-y" data-editable>Customers retained</span>
+            <span class="retention-x" data-editable>Time since acquisition</span>
+            <svg viewBox="0 0 430 245" aria-hidden="true">
+              <line x1="42" y1="16" x2="42" y2="210" class="axis"/>
+              <line x1="42" y1="210" x2="416" y2="210" class="axis"/>
+              <path d="M42 25 C92 76 137 100 188 116 S302 143 416 151" class="cohort early"/>
+              <path d="M42 25 C93 93 140 126 192 143 S304 169 416 176" class="cohort middle"/>
+              <path d="M42 25 C90 113 139 150 194 167 S309 188 416 193" class="cohort late"/>
+            </svg>
+            <div class="cohort-legend"><span class="early-label" data-editable>Earlier cohort</span><span class="middle-label" data-editable>Middle cohort</span><span class="late-label" data-editable>Later cohort</span></div>
+          </div>
+          <div class="retention-questions">
+            <h2 data-editable>What the curve reveals</h2>
+            <ul class="slide-list" data-editable>
+              <li>The initial drop shows how many acquired customers fail to form a relationship.</li>
+              <li>The long tail determines how many future orders and margins remain.</li>
+              <li>Cohort comparisons separate growth in customer count from improvement in customer quality.</li>
+            </ul>
+            <p class="case-data-note" data-editable>The curves are schematic. Use the case spreadsheet to reproduce the published estimates and compare segments.</p>
+          </div>
+        </div>
+      `, "blue-apron-slide")
+    },
+    "36": {
+      html: slide("Blue Apron: CLV, CAC, and Acquisition ROI", `
+        <div class="blue-apron-economics">
+          <div class="clv-chain">
+            <section><strong data-editable>Retention curve</strong><span data-editable>Expected survival by period</span></section>
+            <section><strong data-editable>Future contribution</strong><span data-editable>Orders × contribution margin</span></section>
+            <section><strong data-editable>Customer value</strong><span data-editable>Discounted future contribution</span></section>
+            <section><strong data-editable>Acquisition ROI</strong><span data-editable>Compare CLV with CAC</span></section>
+          </div>
+          <div class="acquisition-decisions">
+            <section><h2 data-editable>CLV comfortably exceeds CAC</h2><p data-editable>Continue acquiring similar customers while monitoring cohort quality.</p></section>
+            <section><h2 data-editable>CLV is close to CAC</h2><p data-editable>Improve targeting, offer design, and early retention before scaling.</p></section>
+            <section><h2 data-editable>CLV falls below CAC</h2><p data-editable>Reduce acquisition spending for that segment or redesign the customer experience.</p></section>
+          </div>
+          <p class="case-access"><a href="https://store.hbr.org/product/blue-apron-turning-around-the-struggling-meal-kit-market-leader/W73C09" target="_blank" rel="noopener">Case, spreadsheet, and instructor-material access</a><span data-editable>Access depends on the distributor and educator account.</span></p>
+        </div>
+      `, "blue-apron-slide")
+    },
     "38": {
       html: slide("RFM Code Construction", `
         <div class="rfm-flow"><div class="database" data-editable>Customer database</div><i>→</i><div class="rfm-dimensions"><section><strong>R</strong><span data-editable>Recency</span></section><section><strong>F</strong><span data-editable>Frequency</span></section><section><strong>M</strong><span data-editable>Monetary value</span></section></div><i>→</i><div class="rfm-code" data-editable><strong>535</strong><span>High recency score<br>Medium frequency score<br>High monetary score</span></div></div><p class="discussion-question" data-editable>Higher scores indicate more recent, frequent, and valuable purchasing behavior.</p>
@@ -210,22 +275,40 @@
     },
     "54": { html: week5Agenda(2) },
     "55": {
-      html: slide("Case Workshop: Hotel Dynamic Segmentation", `<div class="workshop-image"><img src="../../assets/images/chapter-03-elements/slide-55-object-00.png" alt="Hotel dynamic segmentation and migration paths"><p data-editable>Identify personas in each AER stage, trace migration paths, locate triggers, and connect each persona to a positioning statement and strategy.</p></div>`, "workshop-slide")
+      html: slide("Madrigal: Why Audit the Customer Base?", `
+        <div class="madrigal-opening"><div><p class="lead" data-editable>Madrigal is a U.S. retailer with roughly 20 years of operating history and a loyalty program. A new CEO discovers that the company lacks a systematic view of its customers.</p><ul class="slide-list" data-editable><li>Management reports describe products and total sales more clearly than customer behavior.</li><li>The company cannot explain whether growth comes from more customers, better customers, or temporary spending changes.</li><li>The CMO must turn transaction records into a diagnosis of customer-base health.</li></ul></div><p class="discussion-question" data-editable>What would you want to know before recommending a sustainable growth strategy?</p></div>
+        ${source("Source: Ascarza, Hardie, Ross, and Fader, Madrigal: Conducting a Customer-Base Audit, Harvard Business School, 2024. Case product 524046.")}
+      `, "madrigal-slide")
     },
     "56": {
-      html: slide("Case Workshop: Markstrat Customer Dynamics", `<div class="workshop-image"><img src="../../assets/images/chapter-03-elements/slide-56-object-00.png" alt="Markstrat customer segments changing over time"><p data-editable>Customer needs change within established segments while new segments emerge. The team must update products, prices, and targeting before the market moves.</p></div>`, "workshop-slide")
+      html: slide("Madrigal: Role, Data, and Unit of Analysis", `
+        <div class="madrigal-data"><div class="role-column"><h2 data-editable>Your role</h2><p data-editable>You are the CMO preparing a customer-base audit for the new CEO.</p><h2 data-editable>Available evidence</h2><p data-editable>Four years of customer transaction records. Exact teaching data access should be confirmed with the case distributor.</p></div><div class="transaction-cube"><span data-editable>Customer</span><span data-editable>Time</span><span data-editable>Transaction and product</span><strong data-editable>One row per observed purchase</strong></div><div class="analysis-unit"><h2 data-editable>Shift in perspective</h2><p data-editable>Product reports aggregate over customers. The audit reorganizes the same records around customer histories, acquisition cohorts, and value distributions.</p></div></div>
+      `, "madrigal-slide")
     },
-    "57": { html: week5Agenda(3) },
-    "62": { html: week5Agenda(4) },
-    "63": {
-      html: slide("Case Workshop: Preempting Customer Churn at TKL", `
-        <div class="tkl-case"><div><h2 data-editable>Company and problem</h2><p data-editable>TKL distributes electrical components to construction, industrial, and OEM customers. Market share and sales are falling while churn is rising.</p><h2 data-editable>Customer signals</h2><p data-editable>Ratings declined for warranty, sales support, and delivery speed as the fragmented industry matured.</p></div><div><h2 data-editable>Data</h2><ul class="slide-list" data-editable><li>1,000 acquired and 1,000 non-acquired customers</li><li>1,000 retained and 1,000 non-retained customers</li><li>Price, warranty, delivery time, sales support, industry, firm size, and buying-center structure</li></ul><p class="discussion-question" data-editable>Which customers should TKL acquire, expand, or retain, and which benefits should it emphasize?</p></div></div>
+    "57": {
+      html: slide("Madrigal: Four Questions for the Audit", `
+        <div class="audit-lenses"><section><span>01</span><h2 data-editable>Customer growth</h2><p data-editable>How have active, new, retained, and reactivated customer counts changed?</p></section><section><span>02</span><h2 data-editable>Customer heterogeneity</h2><p data-editable>How widely do purchase frequency, spend, and relationship length vary?</p></section><section><span>03</span><h2 data-editable>Customer value</h2><p data-editable>How concentrated is revenue or contribution, and which cohorts create durable value?</p></section><section><span>04</span><h2 data-editable>Customer segments</h2><p data-editable>Which behavioral groups describe the base, and how is their mix changing?</p></section></div>
+      `, "madrigal-slide")
+    },
+    "58": {
+      html: slide("Madrigal: Workshop Analysis Plan", `
+        <div class="audit-plan"><section><span>1</span><div><h2 data-editable>Build annual customer summaries</h2><p data-editable>Classify each customer as new, retained, reactivated, or lapsed in each year.</p></div></section><section><span>2</span><div><h2 data-editable>Compare acquisition cohorts</h2><p data-editable>Track repeat purchasing, spend, and survival from the first purchase onward.</p></div></section><section><span>3</span><div><h2 data-editable>Measure concentration and value</h2><p data-editable>Examine customer deciles and estimate how much future value depends on a small part of the base.</p></div></section><section><span>4</span><div><h2 data-editable>Develop behavioral segments</h2><p data-editable>Translate recency, frequency, monetary value, and tenure into groups that support different actions.</p></div></section></div>
+      `, "madrigal-slide")
+    },
+    "59": {
+      html: slide("Madrigal: From Audit to Growth Strategy", `
+        <div class="madrigal-deliverable"><div><h2 data-editable>Diagnostic</h2><ul class="slide-list" data-editable><li>Which customer metrics explain the firm’s recent growth?</li><li>Where does the customer base show weakening acquisition quality or retention?</li><li>Which customer groups account for current and future value?</li></ul></div><div><h2 data-editable>Recommendation</h2><ul class="slide-list" data-editable><li>Prioritize one acquisition, development, or retention problem.</li><li>Connect the proposed action to a measurable customer outcome.</li><li>State which analysis would confirm or reject the recommendation.</li></ul></div></div><p class="case-access"><a href="https://store.hbr.org/product/madrigal-conducting-a-customer-base-audit/524046" target="_blank" rel="noopener">Official case and teaching-material access</a><span data-editable>Confirm the teaching dataset and instructor resources with Harvard Business Publishing.</span></p>
+      `, "madrigal-slide")
+    },
+    "60": { html: week5Agenda(3) },
+    "61": {
+      html: slide("Managing Customer Dynamics: Takeaways", `
+        <div class="dynamics-takeaways"><section><strong data-editable>Observe customer histories</strong><p data-editable>Cross-sectional totals can hide changes in acquisition quality, retention, and customer mix.</p></section><section><strong data-editable>Compare cohorts and segments</strong><p data-editable>Customer averages become more useful when managers identify who changed and when.</p></section><section><strong data-editable>Connect analysis to action</strong><p data-editable>Customer value supports resource allocation only when the firm links metrics to acquisition, development, or retention decisions.</p></section></div>
       `)
     },
-    "64": {
-      html: slide("Case Workshop: TKL Results and Decisions", `
-        <div class="tkl-results"><section><h2 data-editable>Acquisition</h2><ul class="slide-list" data-editable><li>Higher prices reduce acquisition probability.</li><li>Longer warranty and stronger sales support increase acquisition.</li><li>Larger construction and industrial firms are more attractive targets.</li></ul></section><section><h2 data-editable>Expansion and retention</h2><ul class="slide-list" data-editable><li>Expansion is more likely among construction and OEM customers.</li><li>Larger firms and centralized buying centers show higher potential.</li><li>Sales support and delivery speed become central to the value proposition.</li></ul></section></div>
-      `)
-    }
+    "62": { hidden: true },
+    "63": { hidden: true },
+    "64": { hidden: true },
+    "65": { hidden: true }
   };
 })();
