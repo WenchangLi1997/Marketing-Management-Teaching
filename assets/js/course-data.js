@@ -74,34 +74,67 @@ window.courseData = {
     },
     {
       number: 6,
-      title: "MP#3: Competitive advantage and positioning",
+      title: "MP#3: Introduction and approaches for managing sustainable competitive advantage",
       description:
-        "This week examines how firms create customer-valued differences, support them with credible evidence, and make those advantages difficult for competitors to copy.",
-      resources: {},
+        "Why competitor reactions make sustainable advantage essential, followed by market-based sources of advantage, brand–offering–relationship equity, and marketing experiments for measuring incremental impact.",
+      resources: {
+        slides: [
+          { label: "Web", url: "./materials/slides/week-06-sustainable-competitive-advantage.html" },
+          { label: "PDF", url: "./materials/slides/week-06-sustainable-competitive-advantage.pdf" },
+        ],
+      },
     },
     {
       number: 7,
-      title: "MP#3: Perceptual mapping and case workshop",
+      title: "MP#3: Framework and AI Frontier for managing sustainable competitive advantage",
       description:
-        "Perceptual maps turn customer perceptions into a view of competitive position. The workshop connects mapping choices to positioning strategy.",
-      ai: "AI Frontier 3: LLM-based perceptual analysis",
-      resources: {},
+        "The sustainable-advantage framework connects market and competitor inputs to brand, offering, and relationship outcomes. The AI Frontier uses social-engagement embeddings to discover dynamic market structure beyond predefined categories.",
+      ai: "AI Frontier 3: Embedding-based market structure from social engagement",
+      resources: {
+        slides: [
+          { label: "Web", url: "./materials/slides/week-07-sca-ai-frontier.html" },
+          { label: "PDF", url: "./materials/slides/week-07-sca-ai-frontier.pdf" },
+        ],
+        other: [
+          { label: "Yang, Zhang, and Kannan (2021)", url: "https://journals.sagepub.com/doi/10.1177/00222429211033585" },
+        ],
+      },
     },
     { recess: true, title: "Recess" },
     {
       number: 8,
-      title: "MP#4: Marketing response and resource allocation",
+      title: "MP#4: Introduction and approaches for managing resource trade-offs",
       description:
-        "Limited resources require explicit trade-offs. This week introduces response functions, metrics, and the logic of allocating budgets across marketing activities.",
-      resources: {},
+        "Why limited and interdependent resources create recurring marketing trade-offs, followed by heuristic and attribution approaches, response models, optimization, and marketing metrics.",
+      resources: {
+        slides: [
+          { label: "Web", url: "./materials/slides/week-08-resource-tradeoffs.html" },
+          { label: "PDF", url: "./materials/slides/week-08-resource-tradeoffs.pdf" },
+        ],
+      },
     },
     {
       number: 9,
-      title: "MP#4: Regression and case workshop",
+      title: "MP#4: Framework and Double Machine Learning case workshop",
       description:
-        "Regression models are used to estimate marketing response and support resource allocation decisions in a structured case workshop.",
-      ai: "AI Frontier 4: Advanced marketing mix modeling",
-      resources: {},
+        "The resource trade-off framework connects strategic priorities to budgets and metrics. A case workshop extends response-model attribution with Double Machine Learning to estimate causal marginal returns before optimizing a fixed marketing budget.",
+      ai: "AI Frontier 4: Double Machine Learning for causal resource allocation",
+      resources: {
+        slides: [
+          { label: "Web", url: "./materials/slides/week-09-resource-allocation-dml.html" },
+          { label: "PDF", url: "./materials/slides/week-09-resource-allocation-dml.pdf" },
+        ],
+        data: [
+          { label: "SkyLink workshop dataset", url: "./materials/data/week-09-dml-marketing-allocation.csv" },
+        ],
+        code: [
+          { label: "Python DML workshop", url: "./materials/code/week-09-dml-workshop.py" },
+        ],
+        other: [
+          { label: "DoubleML documentation", url: "https://docs.doubleml.org/" },
+          { label: "Chernozhukov et al. (2018)", url: "https://academic.oup.com/ectj/article/21/1/C1/5056401" },
+        ],
+      },
     },
     {
       number: 10,
