@@ -93,8 +93,7 @@
             <li><strong>Positioning:</strong> Improve your relative advantage in the minds of your targeted customers. This also addresses Marketing Principle #3 by building sustainable competitive advantage.</li>
           </ul>
           <div class="stp-visual-process" aria-label="Illustrated segmenting, targeting, and positioning process">
-            <img src="../../assets/images/cases/week2-stp-process-v2.png" alt="A diverse customer group separated into segments, one segment selected as a target, and a distinctive marker placed in the customer’s mind">
-            <div class="stp-visual-labels"><span data-editable>Segmenting</span><span data-editable>Targeting</span><span data-editable>Positioning</span></div>
+            <img src="../../assets/images/cases/week2-stp-process-v3.png" alt="A diverse customer group separated into segments, one segment selected as a target, and a distinctive marker placed in the customer’s mind, with the three STP stages labeled inside the figure">
           </div>
         </div>
       `, "stp-source-slide")
@@ -127,7 +126,7 @@
             <h2 data-editable>Business setting</h2>
             <p data-editable>A regional MBA program wants to increase enrollment in a market where prospective students differ in career goals, time constraints, willingness to pay, and interest in the school’s network.</p>
             <h2 data-editable>The survey</h2>
-            <p data-editable>Prospects rated 12 statements about the benefits they wanted from an MBA on a 1–7 scale. One item asked whether “MBA program ranking is very important to my decision.” The items covered prestige, convenience, affordability, content fit, and networking.</p>
+            <p data-editable>Prospects rated 12 statements about the benefits they wanted from an MBA on a 1–7 scale. For example: “MBA program ranking is very important to my decision.” The items covered prestige, convenience, affordability, content fit, and networking.</p>
             <h2 data-editable>Information for later action</h2>
             <p data-editable>The survey also captured age, income, career stage, distance from campus, family status, degree timing, and likelihood of attending. These descriptors help the program find new applicants after the segments have been identified.</p>
             <h2 data-editable>Management question</h2>
@@ -163,14 +162,14 @@
     },
     "20": {
       html: slide("MBA Case: Factor Analysis", `
-        <div class="input-output-layout">
-          <div class="io-block"><h2 data-editable>Input</h2><p data-editable>Twelve correlated importance ratings from prospective MBA students</p></div>
+        <div class="input-output-layout detailed-io-layout">
+          <div class="io-block"><h2 data-editable>Input</h2><p data-editable>Each applicant provides twelve 1–7 importance ratings. Several questions measure overlapping needs, so using all twelve directly would give repeated information too much weight.</p></div>
           <div class="io-arrow">→</div>
-          <div class="io-block io-process"><h2 data-editable>Core steps</h2><ol data-editable><li>Inspect correlations and sampling adequacy</li><li>Extract a small set of factors</li><li>Rotate and interpret factor loadings</li><li>Save factor scores for each respondent</li></ol></div>
+          <div class="io-block io-process"><h2 data-editable>Core steps</h2><ol data-editable><li><strong>Check whether reduction is appropriate.</strong><span>Review the correlation matrix and sampling adequacy. Related items should share enough variation to support common factors.</span></li><li><strong>Estimate candidate factor solutions.</strong><span>Use eigenvalues, the scree plot, and interpretability to decide how many dimensions to retain.</span></li><li><strong>Rotate and name the factors.</strong><span>Examine the strongest loadings and name each factor from the survey items that define it.</span></li><li><strong>Save respondent scores.</strong><span>Replace twelve ratings with five factor scores for every applicant. These scores become the clustering inputs.</span></li></ol></div>
           <div class="io-arrow">→</div>
-          <div class="factor-output"><h2 data-editable>Output</h2><span data-editable>Convenience</span><span data-editable>Prestige</span><span data-editable>Affordability</span><span data-editable>Content fit</span><span data-editable>Networking</span></div>
+          <div class="factor-output"><h2 data-editable>Output</h2><p data-editable>Five need scores per applicant</p><span data-editable>Convenience</span><span data-editable>Prestige</span><span data-editable>Affordability</span><span data-editable>Content fit</span><span data-editable>Networking</span></div>
         </div>
-      `)
+      `, "detailed-io-slide")
     },
     "21": {
       html: slide("Cluster Analysis: Method Intuition", `
@@ -191,19 +190,19 @@
     },
     "22": {
       html: slide("MBA Case: Cluster Analysis", `
-        <div class="input-output-layout cluster-layout">
-          <div class="io-block"><h2 data-editable>Input</h2><p data-editable>Five factor scores for every respondent</p></div>
+        <div class="input-output-layout cluster-layout detailed-io-layout">
+          <div class="io-block"><h2 data-editable>Input</h2><p data-editable>Every applicant is represented by five need scores: convenience, prestige, affordability, content fit, and networking.</p></div>
           <div class="io-arrow">→</div>
-          <div class="io-block io-process"><h2 data-editable>Core steps</h2><ol data-editable><li>Standardize the inputs</li><li>Compare candidate cluster solutions</li><li>Assign applicants to clusters</li><li>Interpret means and segment size</li></ol></div>
+          <div class="io-block io-process"><h2 data-editable>Core steps</h2><ol data-editable><li><strong>Put the factor scores on a common scale.</strong><span>Standardization prevents a dimension with greater numerical variation from dominating the distance calculation.</span></li><li><strong>Compare candidate solutions.</strong><span>Use hierarchical clustering and several cluster counts to examine large changes in distance, stability, and segment size.</span></li><li><strong>Refine the assignments.</strong><span>Use a partitioning method to update cluster centers and reassign applicants until the groups stop changing.</span></li><li><strong>Profile and name the segments.</strong><span>Compare mean factor scores, size, and descriptors. Retain groups that differ clearly and support practical marketing action.</span></li></ol></div>
           <div class="io-arrow">→</div>
-          <div class="segment-cloud"><span data-editable>Mobility Minded</span><span data-editable>Easy Promotions</span><span data-editable>Young Status Seekers</span><span data-editable>New Career Networkers</span><span data-editable>Relevant Learners</span><span data-editable>Cheap and Easy</span></div>
+          <div class="segment-cloud"><p data-editable>One segment label per applicant</p><span data-editable>Mobility Minded</span><span data-editable>Easy Promotions</span><span data-editable>Young Status Seekers</span><span data-editable>New Career Networkers</span><span data-editable>Relevant Learners</span><span data-editable>Cheap and Easy</span></div>
         </div>
-      `)
+      `, "detailed-io-slide")
     },
     "23": {
       html: slide("MBA Case: Hierarchical Clustering", `
         <div class="hierarchical-layout mba-hierarchical-layout">
-          <div><p class="lead" data-editable>The MBA team uses hierarchical clustering as a diagnostic before settling on the final segmentation.</p><ul class="slide-list" data-editable><li>Represent every applicant with the five factor scores produced on Page 20.</li><li>Begin with each applicant as a separate group, then merge the most similar groups step by step.</li><li>Inspect the dendrogram for large jumps in merge distance. A large jump suggests that the next merger would combine meaningfully different applicants.</li><li>Compare several candidate solutions and reject groups that are too small, unstable, or difficult to interpret.</li></ul><p class="mba-cluster-callout" data-editable>For the MBA case, this diagnostic supports the decision to retain six interpretable applicant segments for profiling and targeting.</p></div>
+          <div><p class="lead" data-editable>Hierarchical clustering reveals how individual observations combine into progressively larger groups as the allowed within-group dissimilarity increases.</p><ul class="slide-list" data-editable><li>Represent every applicant with five scores: prestige, convenience, affordability, content fit, and networking.</li><li>Begin with each applicant as a separate group, then merge the two most similar groups at each step.</li><li>Inspect the dendrogram for a large jump in merge distance. The jump indicates that the next merger would combine groups with meaningfully different need profiles.</li><li>Compare candidate cuts of the tree, then reject solutions with groups that are too small, unstable, or difficult to interpret.</li></ul><p class="mba-cluster-callout" data-editable>Hierarchical clustering helps reveal nested relationships, compare plausible segment counts, and identify where additional mergers begin to erase meaningful customer differences.</p></div>
           <div class="dendrogram" aria-label="Simplified hierarchical clustering dendrogram"><div class="leaf-row"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div><div class="merge-row merge-one"><i></i><i></i><i></i></div><div class="merge-row merge-two"><i></i><i></i></div><div class="merge-row merge-three"><i></i></div><p data-editable>Merge distance increases upward</p></div>
         </div>
       `)
@@ -319,17 +318,15 @@
       `, "compact-title-slide")
     },
     "37": {
-      html: slide("Positioning Statement", `
-        <div class="position-statement" data-editable>For experienced professionals who want promotion without disrupting work, the MBA program offers a convenient and affordable path to advancement because its schedule, local access, and employer-relevant curriculum support working students.</div>
-        <div class="statement-check"><span data-editable><strong>Target:</strong> experienced working professionals</span><span data-editable><strong>Need:</strong> promotion with convenience and affordability</span><span data-editable><strong>Reason to believe:</strong> schedule, access, and employer-relevant curriculum</span></div>
-      `)
-    },
-    "38": {
-      html: slide("MBA Case: From Positioning to Action", `
-        <div class="action-flow"><section><h2 data-editable>Offering</h2><p data-editable>Flexible scheduling, transparent total cost, local access, and employer-relevant coursework must support the promise.</p></section><section><h2 data-editable>Message</h2><p data-editable>Show how working students can earn the degree while preparing for promotion at their current firm.</p></section><section><h2 data-editable>Channels</h2><p data-editable>Reach experienced professionals through employers, alumni, and targeted digital media.</p></section></div>
-      `)
+      html: slide("MBA Case: Positioning Statement and Actions", `
+        <div class="positioning-action-merged">
+          <div class="merged-positioning-statement"><p data-editable>For experienced professionals who want promotion without disrupting work, the MBA program offers a convenient and affordable path to advancement because its schedule, local access, and employer-relevant curriculum support working students.</p><div class="statement-check"><span data-editable><strong>Target:</strong> experienced working professionals</span><span data-editable><strong>Need:</strong> promotion with convenience and affordability</span><span data-editable><strong>Reason to believe:</strong> schedule, access, and employer-relevant curriculum</span></div></div>
+          <div class="merged-action-flow"><section><h2 data-editable>Offering</h2><p data-editable>Flexible scheduling, transparent total cost, local access, and employer-relevant coursework support the promise.</p></section><section><h2 data-editable>Message</h2><p data-editable>Show how working students can earn the degree while preparing for promotion at their current firm.</p></section><section><h2 data-editable>Channels</h2><p data-editable>Reach experienced professionals through employers, alumni, and targeted digital media.</p></section></div>
+        </div>
+      `, "positioning-action-merged-slide")
     },
     "39": {
+      pageNumber: "38",
       html: slide("MBA Case: Complete STP Process", `
         <div class="mba-stp-summary">
           <section><span>1</span><h2 data-editable>Segmenting</h2><p data-editable>Twelve survey questions were condensed into five need factors. Applicants with similar factor profiles formed six segments.</p><strong data-editable>Output: interpretable applicant groups</strong></section>
@@ -339,27 +336,53 @@
       `, "mba-stp-summary-slide compact-title-slide")
     },
     "40": {
+      pageNumber: "39",
       html: slide("Exercise: Describe Your Firm’s STP", `
         <div class="stp-exercise"><section><h2 data-editable>Segmenting</h2><p data-editable>How is the market divided?</p><div></div><div></div></section><section><h2 data-editable>Targeting</h2><p data-editable>Which segment receives priority?</p><div></div><div></div></section><section><h2 data-editable>Positioning</h2><p data-editable>What distinct value should the target perceive?</p><div></div><div></div></section></div>
       `)
     },
-    "45": { pageNumber: "41" },
+    "45": { pageNumber: "40" },
     "46": {
-      pageNumber: "42",
+      pageNumber: "41",
       html: slide("What Does It Mean for a Firm to Be Customer Centric?", `
         <p class="lead" data-editable>A customer-centric firm places customer needs at the center of its vision, decisions, processes, structure, culture, and metrics.</p>
         <div class="iop-grid"><section><h2 data-editable>Input</h2><p data-editable>Use customer needs and feedback to guide decisions.</p><ul class="slide-list" data-editable><li>Customer and channel councils</li><li>Managers listening in the call center</li></ul></section><section><h2 data-editable>Output</h2><p data-editable>Measure success from the customer’s perspective.</p><ul class="slide-list" data-editable><li>Customer satisfaction</li><li>Loyalty and Net Promoter Score</li></ul></section><section><h2 data-editable>Processes</h2><p data-editable>Link customer information to operating systems.</p><ul class="slide-list" data-editable><li>Compensation</li><li>Scorecards and dashboards</li></ul></section></div>
       `)
     },
-    "47": { pageNumber: "43" },
-    "48": { pageNumber: "44" },
-    "49": { pageNumber: "45" },
-    "50": { pageNumber: "46" },
-    "51": { pageNumber: "47" },
+    "47": { pageNumber: "42" },
+    "48": {
+      pageNumber: "43",
+      html: slide("Firms are Shifting Toward a Customer-Centric Structure", `
+        <p class="customer-structure-quote" data-editable>“Rather than relying on a structure focused on discrete product lines, Intel’s reorganization brought engineers, software writers, and marketers together in market-focused units.”</p>
+        <div class="customer-structure-images" aria-label="Product-centric and customer-centric organizational structures shown side by side"><figure class="product-structure-crop"><img src="../../assets/images/chapter-02-elements/slide-48-object-00.png" alt="Product-centric organization structure"><figcaption data-editable>Product-centric structure</figcaption></figure><figure class="customer-structure-crop"><img src="../../assets/images/chapter-02-elements/slide-48-object-01.png" alt="Customer-centric organization structure"><figcaption data-editable>Customer-centric structure</figcaption></figure></div>
+        ${source("Lee, Sridhar, Palmatier, and Henderson (2015). Original organizational diagrams from Chapt 2.")}
+      `, "customer-structure-slide compact-title-slide")
+    },
+    "49": {
+      pageNumber: "44",
+      html: slide("Trend of Customer-Centric Structures in the Fortune 500 Firms", `
+        <figure class="fortune-growth-figure"><img src="../../assets/images/chapter-02-elements/slide-49-object-01.png" alt="Bar chart showing an increase from 57 to 86 Fortune 500 firms with customer-centric structures between 1998 and 2010, with a diagonal growth arrow"></figure>
+        ${source("Lee, Sridhar, Palmatier, and Henderson (2015). The original diagonal arrow and 51% growth annotation are preserved within the figure.")}
+      `, "source-chart-slide compact-title-slide")
+    },
+    "50": {
+      pageNumber: "45",
+      html: slide("How and When Does a Customer-Centric Structure Payoff", `
+        <figure class="original-slide-crop customer-payoff-crop"><img src="../../assets/images/chapter-02-elements/slide-50-original-full-v1.png" alt="Original research framework linking customer-centric structure, competitive environment, customer satisfaction, coordinating costs, and firm performance"></figure>
+        ${source("Lee, Sridhar, Palmatier, and Henderson (2015). The central framework is reproduced directly from Chapt 2, Page 50.")}
+      `, "original-framework-slide compact-title-slide")
+    },
+    "51": {
+      pageNumber: "46",
+      html: slide("Dynamic Effects of Customer-Centric Restructuring on Firm Performance", `
+        <figure class="original-slide-crop dynamic-effects-crop"><img src="../../assets/images/chapter-02-elements/slide-51-original-full-v1.png" alt="Original curve showing an initial performance drop during the learning stage and improvement during the pay-off stage"></figure>
+        ${source("Lee, Sridhar, and Palmatier (2015). The original dynamic-effects diagram and explanation are reproduced from Chapt 2, Page 51.")}
+      `, "original-framework-slide dynamic-effects-slide compact-title-slide")
+    },
     "52": {
-      pageNumber: "48",
+      pageNumber: "47",
       html: slide("Week 2 Recap and Next Week", `
-        <div class="recap-layout"><section><h2 data-editable>Covered today</h2><ul class="slide-list" data-editable><li>Why all customers differ</li><li>Five sources of heterogeneity and latent demand</li><li>Evolution from mass marketing to STP and customer centricity</li><li>Factor analysis, clustering, classification, targeting, and positioning through the MBA case</li></ul></section><section><h2 data-editable>Next week</h2><ul class="slide-list" data-editable><li>The customer heterogeneity framework</li><li>AI Frontiers: embedding-based segmentation</li><li>Guided EMBA segmentation homework workshop</li></ul></section></div>
+        <div class="recap-layout"><section><h2 data-editable>Covered today</h2><ul class="slide-list" data-editable><li>Why all customers differ</li><li>Five sources of heterogeneity and latent demand</li><li>Evolution from mass marketing to STP and customer centricity</li><li>Factor analysis, clustering, classification, targeting, and positioning through the MBA case</li></ul></section><section><h2 data-editable>Next week</h2><ul class="slide-list" data-editable><li>The customer heterogeneity framework</li><li>Guided EMBA segmentation homework workshop</li><li>AI Frontiers: embedding-based segmentation</li></ul></section></div>
       `)
     },
     "53": { className: "framework-title-large" },
