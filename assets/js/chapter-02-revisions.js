@@ -9,7 +9,23 @@
 
   const source = text => `<p class="slide-source" data-editable>${text}</p>`;
 
+  const agenda = (items, activeIndex) => slide("Agenda", `
+    <div class="vertical-agenda agenda-minimal">
+      ${items.map((item, index) => `<section class="${index === activeIndex ? "active" : ""}"><span>${String(index + 1).padStart(2, "0")}</span><div><h2 data-editable>${item}</h2></div></section>`).join("")}
+    </div>
+  `, "agenda-slide");
+
   window.chapter2Revisions = {
+    "2": {
+      html: agenda(["Introduction", "Approaches", "Takeaways"], 0)
+    },
+    "11": {
+      html: agenda(["Introduction", "Approaches", "Takeaways"], 1)
+    },
+    "week2-agenda-approaches": {
+      pageNumber: "11",
+      html: agenda(["Introduction", "Approaches", "Takeaways"], 1)
+    },
     "4": {
       html: slide("Example: Macy’s vs. TJ Maxx (US)", `
         <div class="case-grid">
@@ -354,8 +370,8 @@
       pageNumber: "43",
       html: slide("Firms are Shifting Toward a Customer-Centric Structure", `
         <p class="customer-structure-quote" data-editable>“Rather than relying on a structure focused on discrete product lines, Intel’s reorganization brought engineers, software writers, and marketers together in market-focused units.”</p>
-        <div class="customer-structure-images" aria-label="Product-centric and customer-centric organizational structures shown side by side"><figure class="product-structure-crop"><img src="../../assets/images/chapter-02-elements/slide-48-object-00.png" alt="Product-centric organization structure"><figcaption data-editable>Product-centric structure</figcaption></figure><figure class="customer-structure-crop"><img src="../../assets/images/chapter-02-elements/slide-48-object-01.png" alt="Customer-centric organization structure"><figcaption data-editable>Customer-centric structure</figcaption></figure></div>
-        ${source("Lee, Sridhar, Palmatier, and Henderson (2015). Original organizational diagrams from Chapt 2.")}
+        <div class="customer-structure-images" aria-label="Product-centric and customer-centric organizational structures shown side by side"><figure><img src="../../assets/images/cases/week2-product-centric-structure-v1.png" alt="Product-centric organization structure supplied by the instructor"><figcaption data-editable>Product-centric structure</figcaption></figure><figure><img src="../../assets/images/cases/week2-customer-centric-structure-v1.png" alt="Customer-centric organization structure supplied by the instructor"><figcaption data-editable>Customer-centric structure</figcaption></figure></div>
+        ${source("Organizational diagrams supplied by the instructor; research context: Lee, Sridhar, Palmatier, and Henderson (2015).")}
       `, "customer-structure-slide compact-title-slide")
     },
     "49": {
@@ -385,75 +401,106 @@
         <div class="recap-layout"><section><h2 data-editable>Covered today</h2><ul class="slide-list" data-editable><li>Why all customers differ</li><li>Five sources of heterogeneity and latent demand</li><li>Evolution from mass marketing to STP and customer centricity</li><li>Factor analysis, clustering, classification, targeting, and positioning through the MBA case</li></ul></section><section><h2 data-editable>Next week</h2><ul class="slide-list" data-editable><li>The customer heterogeneity framework</li><li>Guided EMBA segmentation homework workshop</li><li>AI Frontiers: embedding-based segmentation</li></ul></section></div>
       `)
     },
-    "53": { className: "framework-title-large" },
+    "week3-title": {
+      pageNumber: "1",
+      html: `
+        <article class="week3-cover">
+          <p class="week-label" data-editable>Marketing Principle #1</p>
+          <h1 data-editable>All Customers Differ</h1>
+          <div class="cover-arrow" aria-hidden="true">→</div>
+          <h2 data-editable>Managing Customer Heterogeneity</h2>
+          <p class="week3-subtitle" data-editable>Week 3 · Framework, Homework Workshop, and AI Frontier</p>
+          <p class="week3-author" data-editable>Yixing Chen</p>
+        </article>`
+    },
+    "week3-agenda": {
+      pageNumber: "2",
+      html: agenda(["Framework", "Homework workshop", "AI Frontier"], 0)
+    },
+    "53": {
+      pageNumber: "3",
+      html: slide("Marketing Principle #1: All Customers Differ → Managing Customer Heterogeneity", `
+        <figure class="source-middle-crop framework-overview-crop"><img src="../../assets/images/chapter-02-elements/slide-53-original-full-v1.png" alt="Original Chapt 2 framework showing inputs, approaches and processes, and STP outputs"></figure>
+      `, "source-screenshot-slide compact-title-slide")
+    },
+    "54": { pageNumber: "4" },
     "55": {
+      pageNumber: "5",
       html: slide("SWOT and 3C Analyses", `
         <div class="swot-intro"><section><h2 data-editable>SWOT</h2><p data-editable>Organizes internal strengths and weaknesses with external opportunities and threats that may affect a decision.</p></section><section><h2 data-editable>3C analysis</h2><p data-editable>Examines the company, customers, and competitors to identify where the firm can create distinctive value.</p></section><div class="analysis-inputs"><strong data-editable>Inputs</strong><span data-editable>Internal capabilities and constraints</span><span data-editable>Customer needs and market change</span><span data-editable>Competitor strengths and likely responses</span></div></div>
       `)
     },
     "56": {
+      pageNumber: "6",
       html: slide("SWOT Analysis", `
         <div class="swot-matrix"><section><h2 data-editable>Strengths</h2><p data-editable>Current internal advantages that the firm can use.</p></section><section><h2 data-editable>Weaknesses</h2><p data-editable>Current internal limitations that require improvement or mitigation.</p></section><section><h2 data-editable>Opportunities</h2><p data-editable>External developments that may create value.</p></section><section><h2 data-editable>Threats</h2><p data-editable>External developments that may reduce performance.</p></section></div>
         <p class="matrix-note" data-editable>Translate each observation into an implication for the segmentation, targeting, or positioning decision.</p>
       `)
     },
     "57": {
+      pageNumber: "7",
       html: slide("Example: Bakery SWOT Analysis", `
         <p class="lead" data-editable>A bakery is considering a new location in another neighborhood.</p><div class="swot-matrix example-matrix"><section><h2 data-editable>Strength</h2><p data-editable>Distinctive, well-known house-baked sourdough.</p></section><section><h2 data-editable>Weakness</h2><p data-editable>High production cost and limited parking at the proposed location.</p></section><section><h2 data-editable>Opportunity</h2><p data-editable>A nearby grocery store may bring new customer traffic.</p></section><section><h2 data-editable>Threat</h2><p data-editable>Established competitors already have loyal local customers.</p></section></div>
       `)
     },
     "58": {
+      pageNumber: "8",
       html: slide("Example: Bakery 3C Analysis", `
         <p class="lead" data-editable>The same decision looks different when managers organize the evidence around the three market actors.</p><div class="three-c"><section><h2 data-editable>Company</h2><p data-editable>Known for house-baked sourdough, but production costs are high.</p></section><section><h2 data-editable>Customers</h2><p data-editable>Neighborhood families may value quality, convenience, and products for children.</p></section><section><h2 data-editable>Competitors</h2><p data-editable>A donut shop and a café already offer convenient local alternatives.</p></section></div>
       `)
     },
-    "69": {
-      html: slide("Agenda", `
-        <div class="vertical-agenda"><section class="completed"><span>01</span><div><h2 data-editable>Framework</h2><p data-editable>Inputs, outputs, and process for managing customer heterogeneity</p></div></section><section class="active"><span>02</span><div><h2 data-editable>AI Frontiers</h2><p data-editable>Embedding-based segmentation of unstructured customer data</p></div></section><section><span>03</span><div><h2 data-editable>Homework workshop</h2><p data-editable>Guided EMBA segmentation case from survey design to targeting</p></div></section></div>
-      `)
+    "59": { pageNumber: "9" },
+    "63": { pageNumber: "10" },
+    "64": {
+      pageNumber: "11",
+      html: slide("Example of Managing Customer Heterogeneity", `
+        <figure class="source-middle-crop framework-example-crop"><img src="../../assets/images/chapter-02-elements/slide-64-original-full-v1.png" alt="Original Chapt 2 example illustrating segmenting, targeting, and positioning for athletic wear customers"></figure>
+      `, "source-screenshot-slide compact-title-slide")
     },
     "ai-intuition": {
-      pageNumber: "AI 1",
+      pageNumber: "22",
       html: slide("AI Frontiers: The Intuition Behind Embeddings", `
         <div class="embedding-intuition"><div class="text-samples"><span data-editable>“I need a flexible schedule because I travel every week.”</span><span data-editable>“Career mobility matters more than campus amenities.”</span><span data-editable>“I want a strong peer network in my industry.”</span></div><div class="embedding-arrow">→</div><div class="vector-space"><i class="point p1"></i><i class="point p2"></i><i class="point p3"></i><span data-editable>Semantically similar responses are placed near one another in a numerical vector space.</span></div></div>
         ${source("Conceptual basis: Reimers and Gurevych, Sentence-BERT, EMNLP 2019.")}
       `)
     },
     "ai-advantages": {
-      pageNumber: "AI 2",
+      pageNumber: "23",
       html: slide("Embedding-Based Segmentation Workflow", `
         <div class="embedding-workflow"><section><strong data-editable>1. Collect</strong><span data-editable>Open-ended responses, reviews, call transcripts, or product descriptions</span></section><b>→</b><section><strong data-editable>2. Embed</strong><span data-editable>Convert each customer’s text into a dense semantic vector</span></section><b>→</b><section><strong data-editable>3. Cluster</strong><span data-editable>Use k-means, hierarchical clustering, or a density-based method</span></section><b>→</b><section><strong data-editable>4. Interpret</strong><span data-editable>Name, profile, and validate the segments against business outcomes</span></section></div><div class="advantage-strip"><span data-editable>Captures meaning beyond exact keywords</span><span data-editable>Uses unstructured data at scale</span><span data-editable>Can complement survey variables</span></div>
       `)
     },
     "ai-example": {
-      pageNumber: "AI 3",
+      pageNumber: "24",
       html: slide("Example: Embedding MBA Applicants’ Open-Ended Goals", `
         <div class="embedding-example"><div class="response-column"><h2 data-editable>Applicant responses</h2><p data-editable>“Move into management without leaving my job.”</p><p data-editable>“Change industry and build a new network.”</p><p data-editable>“Gain credibility for a promotion.”</p><p data-editable>“Learn analytics for my current role.”</p></div><div class="mini-map"><span class="cluster-label c1" data-editable>Career mobility</span><span class="cluster-label c2" data-editable>Network changers</span><span class="cluster-label c3" data-editable>Skill builders</span><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><i class="dot d4"></i><i class="dot d5"></i><i class="dot d6"></i></div></div><p class="discussion-question" data-editable>The clusters reveal language and motives that a fixed survey may not anticipate. Managers still need to test whether the groups differ in behavior, value, or response.</p>
       `)
     },
     "ai-limitations": {
-      pageNumber: "AI 4",
+      pageNumber: "25",
       html: slide("Limits and Validation of Embedding-Based Segmentation", `
         <div class="limitations"><section><h2 data-editable>Model dependence</h2><p data-editable>Different embedding models and prompts may change the geometry and the clusters.</p></section><section><h2 data-editable>Interpretability</h2><p data-editable>Cluster labels come from human judgment and can oversimplify mixed motives.</p></section><section><h2 data-editable>Bias and privacy</h2><p data-editable>Text can reveal sensitive attributes and reproduce patterns from the training data.</p></section><section><h2 data-editable>Business validity</h2><p data-editable>Semantic separation matters only if segments differ in size, value, needs, or response.</p></section></div><p class="validation-line" data-editable>Validate stability across models and samples, inspect representative responses, and link clusters to observable outcomes.</p>
       `)
     },
     "70": {
+      pageNumber: "12",
       html: slide("Homework Workshop: From Survey Data to STP", `
         <div class="homework-intro"><div class="homework-badge" data-editable>Guided in class<br>Completed as homework</div><ol class="numbered-steps" data-editable><li>Check the survey data and missing values.</li><li>Use factor analysis to reduce related need ratings.</li><li>Use cluster analysis to identify applicant segments.</li><li>Profile segments with discriminant or classification analysis.</li><li>Select a target with the GE matrix.</li><li>Use a perceptual map to support positioning.</li></ol></div>
       `, "homework-custom")
     },
     "71": {
+      pageNumber: "13",
       html: slide("Homework Case: EMBA Enrollment", `
         <div class="homework-case"><h2 data-editable>Business problem</h2><p data-editable>You have been asked to develop a marketing program that increases enrollment in an Executive MBA program.</p><h2 data-editable>Your task</h2><ul class="slide-list" data-editable><li>Identify applicant segments from the survey.</li><li>Choose a target segment using explicit criteria.</li><li>Recommend a positioning direction supported by the data.</li></ul><p class="discussion-question" data-editable>We will complete the workflow together in class. Your homework documents the decisions and interpretation at each step.</p></div>
       `, "homework-custom")
     },
-    "72": { className: "homework-slide" },
-    "73": { className: "homework-slide" },
-    "74": { className: "homework-slide" },
-    "75": { className: "homework-slide" },
-    "76": { className: "homework-slide" },
-    "77": { className: "homework-slide" },
-    "78": { className: "homework-slide" },
-    "79": { className: "homework-slide" }
+    "72": { pageNumber: "14", className: "homework-slide" },
+    "73": { pageNumber: "15", className: "homework-slide" },
+    "74": { pageNumber: "16", className: "homework-slide" },
+    "75": { pageNumber: "17", className: "homework-slide" },
+    "76": { pageNumber: "18", className: "homework-slide" },
+    "77": { pageNumber: "19", className: "homework-slide" },
+    "78": { pageNumber: "20", className: "homework-slide" },
+    "79": { pageNumber: "21", className: "homework-slide" }
   };
 })();
