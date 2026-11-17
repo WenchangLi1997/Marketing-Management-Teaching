@@ -124,37 +124,42 @@
       html: slide("MBA Program Segmentation Case", `
         <div class="case-method-intro">
           <div class="case-method-background">
-            <h2 data-editable>Business problem</h2>
-            <p data-editable>An MBA program wants to increase enrollment without relying on one generic message for all prospective students.</p>
-            <h2 data-editable>Available data</h2>
-            <p data-editable>Applicants rated the importance of prestige, convenience, affordability, course content, and networking. The survey also recorded career stage, location, and other descriptors.</p>
-            <h2 data-editable>Analytical question</h2>
-            <p data-editable>Which applicant groups want different benefits, and how can the program identify and serve them?</p>
+            <h2 data-editable>Business setting</h2>
+            <p data-editable>A regional MBA program wants to increase enrollment in a market where prospective students differ in career goals, time constraints, willingness to pay, and interest in the school’s network.</p>
+            <h2 data-editable>The survey</h2>
+            <p data-editable>Prospects rated 12 statements about the benefits they wanted from an MBA on a 1–7 scale. One item asked whether “MBA program ranking is very important to my decision.” The items covered prestige, convenience, affordability, content fit, and networking.</p>
+            <h2 data-editable>Information for later action</h2>
+            <p data-editable>The survey also captured age, income, career stage, distance from campus, family status, degree timing, and likelihood of attending. These descriptors help the program find new applicants after the segments have been identified.</p>
+            <h2 data-editable>Management question</h2>
+            <p data-editable>Which groups seek different benefits, which groups should the program prioritize, and what should the program promise them?</p>
           </div>
           <div class="case-method-plan">
             <h2 data-editable>Three-step solution</h2>
-            <section><span>1</span><div><strong data-editable>Factor analysis</strong><p data-editable>Reveal the underlying benefit dimensions.</p></div></section>
-            <section><span>2</span><div><strong data-editable>Cluster analysis</strong><p data-editable>Form groups with similar benefit profiles.</p></div></section>
-            <section><span>3</span><div><strong data-editable>Classification</strong><p data-editable>Identify the descriptors that assign future applicants.</p></div></section>
+            <section><span>1</span><div><strong data-editable>Factor analysis</strong><p data-editable>Condense related survey questions.</p></div></section>
+            <section><span>2</span><div><strong data-editable>Cluster analysis</strong><p data-editable>Group applicants with similar needs.</p></div></section>
+            <section><span>3</span><div><strong data-editable>Classification</strong><p data-editable>Recognize similar applicants later.</p></div></section>
           </div>
         </div>
       `, "case-method-intro-slide")
     },
     "19": {
       html: slide("Factor Analysis: Method Intuition", `
-        <div class="method-theory-layout factor-theory">
-          <div class="theory-copy">
-            <h2 data-editable>What the method assumes</h2>
-            <p data-editable>Several observed survey items may reflect the same unobserved need. Their correlations provide evidence of that shared latent factor.</p>
-            <div class="method-equation" data-editable>x<sub>j</sub> = λ<sub>j1</sub>F<sub>1</sub> + … + λ<sub>jm</sub>F<sub>m</sub> + ε<sub>j</sub></div>
+        <div class="factor-intuition-layout">
+          <div class="factor-intuition-main">
+            <div class="theory-copy factor-explanation">
+              <h2 data-editable>Factor analysis groups questions, not people</h2>
+              <p data-editable>When several survey answers rise and fall together, they may reflect the same underlying need. For example, applicants who care about rankings may also care about reputation and selectivity. Factor analysis summarizes those related answers as a common “prestige” factor.</p>
+              <p class="concept-key" data-editable>The method replaces many overlapping questions with a smaller set of benefit dimensions while preserving most of the useful variation.</p>
+            </div>
+            <div class="factor-plain-steps">
+              <section><strong data-editable>1. Find questions that move together</strong><span data-editable>Inspect correlations across the 12 importance ratings. Strongly related items contain overlapping information.</span></section>
+              <section><strong data-editable>2. Interpret the shared need</strong><span data-editable>A factor loading shows how strongly an item belongs to a factor. The pattern of high loadings helps the analyst name that factor.</span></section>
+              <section><strong data-editable>3. Score every applicant</strong><span data-editable>Each respondent receives a score on every retained factor. Those scores become the inputs to cluster analysis.</span></section>
+            </div>
           </div>
-          <div class="theory-steps">
-            <section><strong data-editable>Loadings</strong><span data-editable>Show how strongly each survey item relates to each factor.</span></section>
-            <section><strong data-editable>Rotation</strong><span data-editable>Makes the loading pattern easier to interpret and name.</span></section>
-            <section><strong data-editable>Factor scores</strong><span data-editable>Place every respondent on each latent need dimension and become the inputs to clustering.</span></section>
-          </div>
+          <div class="method-equation single-line-equation" data-editable>x<sub>j</sub> = λ<sub>j1</sub>F<sub>1</sub> + … + λ<sub>jm</sub>F<sub>m</sub> + ε<sub>j</sub></div>
         </div>
-      `, "method-theory-slide")
+      `, "method-theory-slide factor-intuition-slide")
     },
     "20": {
       html: slide("MBA Case: Factor Analysis", `
@@ -169,19 +174,20 @@
     },
     "21": {
       html: slide("Cluster Analysis: Method Intuition", `
-        <div class="method-theory-layout cluster-theory">
-          <div class="theory-copy">
-            <h2 data-editable>What the method does</h2>
-            <p data-editable>Cluster analysis searches for groups whose members have similar factor-score profiles. The groups should be internally cohesive and meaningfully different from one another.</p>
-            <div class="method-equation" data-editable>Choose assignments that minimize within-cluster distance</div>
+        <div class="cluster-intuition-layout">
+          <div class="cluster-intuition-copy">
+            <h2 data-editable>Cluster analysis groups people, not questions</h2>
+            <p data-editable>After factor analysis, each applicant becomes a point described by five factor scores. Applicants with similar combinations of prestige, convenience, affordability, content, and networking needs appear close together.</p>
+            <p class="concept-key" data-editable>The objective is simple: keep applicants within a group close to one another while keeping different groups clearly separated.</p>
           </div>
-          <div class="theory-steps">
-            <section><strong data-editable>Distance</strong><span data-editable>Measures how similar two respondents are after the inputs have been standardized.</span></section>
-            <section><strong data-editable>Centroids</strong><span data-editable>Summarize the average need profile of each cluster.</span></section>
-            <section><strong data-editable>Number of clusters</strong><span data-editable>Combines statistical separation and stability with managerial interpretability and actionability.</span></section>
+          <div class="cluster-intuition-steps">
+            <p data-editable><strong>Distance:</strong> after standardizing the factor scores, nearby points represent applicants with similar benefit priorities.</p>
+            <p data-editable><strong>Cluster center:</strong> the center is the average profile of the applicants currently assigned to that group.</p>
+            <p data-editable><strong>Choosing the number of groups:</strong> compare several solutions, then check separation, stability, group size, and whether managers can act on the result.</p>
           </div>
+          <figure class="cluster-intuition-figure"><img src="../../assets/images/cases/week2-cluster-intuition-v1.png" alt="Scattered customer points moving into three compact clusters around group centers"><figcaption data-editable>Points move toward the closest group center. The centers update until assignments stop changing.</figcaption></figure>
         </div>
-      `, "method-theory-slide")
+      `, "method-theory-slide cluster-intuition-slide")
     },
     "22": {
       html: slide("MBA Case: Cluster Analysis", `
@@ -196,27 +202,28 @@
     },
     "23": {
       html: slide("MBA Case: Hierarchical Clustering", `
-        <div class="hierarchical-layout">
-          <div><p class="lead" data-editable>Hierarchical clustering helps reveal how smaller applicant groups combine as the permitted within-cluster dissimilarity increases.</p><ul class="slide-list" data-editable><li>Begin with each respondent as a separate cluster.</li><li>Merge the closest clusters step by step.</li><li>Inspect the dendrogram and the change in within-cluster variance.</li><li>Use the result to inform, rather than mechanically determine, the final number of segments.</li></ul></div>
+        <div class="hierarchical-layout mba-hierarchical-layout">
+          <div><p class="lead" data-editable>The MBA team uses hierarchical clustering as a diagnostic before settling on the final segmentation.</p><ul class="slide-list" data-editable><li>Represent every applicant with the five factor scores produced on Page 20.</li><li>Begin with each applicant as a separate group, then merge the most similar groups step by step.</li><li>Inspect the dendrogram for large jumps in merge distance. A large jump suggests that the next merger would combine meaningfully different applicants.</li><li>Compare several candidate solutions and reject groups that are too small, unstable, or difficult to interpret.</li></ul><p class="mba-cluster-callout" data-editable>For the MBA case, this diagnostic supports the decision to retain six interpretable applicant segments for profiling and targeting.</p></div>
           <div class="dendrogram" aria-label="Simplified hierarchical clustering dendrogram"><div class="leaf-row"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div><div class="merge-row merge-one"><i></i><i></i><i></i></div><div class="merge-row merge-two"><i></i><i></i></div><div class="merge-row merge-three"><i></i></div><p data-editable>Merge distance increases upward</p></div>
         </div>
       `)
     },
     "24": {
       html: slide("Discriminant and Classification Analyses: Method Intuition", `
-        <div class="method-theory-layout classification-theory">
-          <div class="theory-copy">
-            <h2 data-editable>From discovered segments to an assignment rule</h2>
-            <p data-editable>The cluster solution supplies known group labels. Discriminant analysis then finds weighted combinations of observable descriptors that separate those groups.</p>
-            <div class="method-equation" data-editable>Score<sub>g</sub> = a<sub>g</sub> + b<sub>g1</sub>x<sub>1</sub> + … + b<sub>gp</sub>x<sub>p</sub></div>
+        <div class="classification-intuition-layout">
+          <div class="theory-copy classification-explanation">
+            <h2 data-editable>Classification learns how to recognize the segments</h2>
+            <p data-editable>Cluster analysis has already assigned the surveyed applicants to segments. Discriminant analysis now asks which observable descriptors best separate those known groups.</p>
+            <p class="concept-key" data-editable>The method does not create new segments. It learns a practical assignment rule from applicants whose segment membership is already known.</p>
           </div>
-          <div class="theory-steps">
-            <section><strong data-editable>Separation</strong><span data-editable>Emphasizes variables that differ across segments relative to variation within segments.</span></section>
-            <section><strong data-editable>Classification</strong><span data-editable>Assigns a new customer to the group with the strongest predicted score or probability.</span></section>
-            <section><strong data-editable>Validation</strong><span data-editable>Uses holdout or cross-validated accuracy and a confusion matrix to test the rule.</span></section>
+          <div class="classification-plain-steps">
+            <section><strong data-editable>Learn from known members</strong><span data-editable>Use age, income, career stage, distance, family status, and other descriptors from applicants already assigned by clustering.</span></section>
+            <section><strong data-editable>Build a segment score</strong><span data-editable>The model gives more weight to descriptors that clearly distinguish one segment from the others.</span></section>
+            <section><strong data-editable>Classify and check</strong><span data-editable>Assign a new prospect to the segment with the strongest score, then test accuracy on applicants the model did not use for estimation.</span></section>
           </div>
+          <div class="method-equation single-line-equation classification-equation" data-editable>Score<sub>g</sub> = a<sub>g</sub> + b<sub>g1</sub>x<sub>1</sub> + … + b<sub>gp</sub>x<sub>p</sub></div>
         </div>
-      `, "method-theory-slide")
+      `, "method-theory-slide classification-intuition-slide")
     },
     "25": {
       html: slide("MBA Case: Discriminant and Classification Analyses", `
@@ -243,97 +250,114 @@
         </div>
       `, "segmentation-targeting-transition")
     },
-    "29": {
-      html: slide("GE Matrix: Analysis Tool for Targeting", `
-        <img class="source-figure source-ge-figure" src="../../assets/images/chapter-02-elements/slide-29-object-03.png" alt="Original Chapt 2 GE matrix for evaluating target segments">
-      `, "source-image-slide source-matrix-slide")
-    },
-    "31": {
-      html: slide("Perceptual Map: Analysis Tool for Positioning", `
-        <img class="source-figure source-perceptual-figure" src="../../assets/images/chapter-02-elements/slide-31-object-04.png" alt="Original Chapt 2 perceptual map for positioning">
-      `, "source-image-slide source-matrix-slide")
-    },
-    "33": {
-      html: slide("A Positioning Statement Answers Three Questions", `
-        <div class="positioning-questions">
-          <ol data-editable><li><strong>Who</strong> is the target customer?</li><li><strong>What</strong> need does the offering fulfill?</li><li><strong>Why</strong> is this offering the best choice relative to alternatives?</li></ol>
-          <div class="horizontal-arrow">→</div>
-          <div class="dark-output" data-editable>For [target customer], our offering provides [benefit] because [credible reason to believe].</div>
+    "28": {
+      html: slide("Targeting", `
+        <p class="lead targeting-definition" data-editable>Targeting selects the segment or segments that the firm will serve. The decision should combine the value of the opportunity with the firm’s ability to win.</p>
+        <div class="two-axis targeting-concept">
+          <section><h2 data-editable>Market attractiveness</h2><ul class="slide-list" data-editable><li>How large is the segment, and is it growing?</li><li>Will members pay enough to support the offering?</li><li>Can the firm reach and retain these customers?</li></ul></section>
+          <section><h2 data-editable>Competitive strength</h2><ul class="slide-list" data-editable><li>Does the firm meet this segment’s needs better than alternatives?</li><li>Do its brand, capabilities, and channels fit the segment?</li><li>Can competitors copy the advantage easily?</li></ul></section>
         </div>
+        <p class="targeting-principle" data-editable>A useful target has clear needs, meaningful economic value, and a strong fit with what the firm can credibly deliver.</p>
+      `, "targeting-concept-slide")
+    },
+    "29": {
+      html: slide("MBA Case: Moving from Segments to Targets", `
+        <div class="segment-summary"><p class="lead" data-editable>The analysis produced six applicant groups with distinct benefit priorities. The program now evaluates which groups are attractive and where it has enough competitive strength to earn enrollment.</p><div class="segment-labels"><span>Young Status Seekers</span><span>New Career Networkers</span><span>Relevant Learners</span><span>Mobility Minded</span><span>Easy Promotions</span><span>Cheap and Easy</span></div></div>
       `)
     },
-    "35": {
-      html: slide("MBA Case: From Segmentation to Targeting", `
-        <div class="segment-summary"><p class="lead" data-editable>The segmentation analysis produced six applicant groups with distinct benefit priorities. The next decision is not whether every segment is interesting, but which segments the program should prioritize.</p><div class="segment-labels"><span>Young Status Seekers</span><span>New Career Networkers</span><span>Relevant Learners</span><span>Mobility Minded</span><span>Easy Promotions</span><span>Cheap and Easy</span></div></div>
-      `)
-    },
-    "36": {
+    "30": {
       html: slide("MBA Case: Targeting Criteria", `
         <div class="two-axis">
-          <section><h2 data-editable>Market attractiveness</h2><ul class="slide-list" data-editable><li>Segment size and expected growth</li><li>Willingness to pay and price sensitivity</li><li>Strategic importance to the program</li></ul></section>
-          <section><h2 data-editable>Competitive strength</h2><ul class="slide-list" data-editable><li>Likelihood of choosing the program</li><li>Needs met better than competing schools</li><li>Fit with the program’s brand and capabilities</li></ul></section>
+          <section><h2 data-editable>Market attractiveness</h2><ul class="slide-list" data-editable><li>Relative segment size and expected growth</li><li>Willingness to pay and sensitivity to affordability</li><li>Timing and seriousness of degree interest</li></ul></section>
+          <section><h2 data-editable>Competitive strength</h2><ul class="slide-list" data-editable><li>Self-reported likelihood of attending the program</li><li>Needs the program meets better than competing schools</li><li>Fit between segment preferences and current offerings</li></ul></section>
         </div>
       `)
     },
-    "37": {
-      html: slide("MBA Case: Targeting with the GE Matrix", `
+    "31": {
+      html: slide("MBA Targeting: GE Matrix", `
         <div class="ge-native" aria-label="Editable GE matrix for MBA applicant segments">
           <span class="axis-y" data-editable>Market attractiveness</span><span class="axis-x" data-editable>Competitive strength</span>
           <i class="grid-v one"></i><i class="grid-v two"></i><i class="grid-h one"></i><i class="grid-h two"></i>
           <div class="ge-bubble mobility" data-editable>Mobility<br>Minded</div><div class="ge-bubble easy" data-editable>Easy<br>Promotions</div><div class="ge-bubble network" data-editable>New Career<br>Networkers</div><div class="ge-bubble relevant" data-editable>Relevant<br>Learners</div><div class="ge-bubble status" data-editable>Young Status<br>Seekers</div><div class="ge-bubble cheap" data-editable>Cheap and<br>Easy</div>
         </div>
         ${source("Bubble size represents relative segment size. The upper-right region combines high attractiveness with high competitive strength.")}
-      `, "chart-slide")
+      `, "chart-slide compact-title-slide")
     },
-    "38": {
+    "32": {
       html: slide("MBA Case: Target Segment Decision", `
-        <div class="decision-layout"><div class="target-bubble" data-editable>Primary target<br><strong>Mobility Minded</strong></div><div><ul class="slide-list" data-editable><li>Highest combined attractiveness and competitive strength in the GE matrix.</li><li>Values benefits the program can credibly deliver.</li><li>Large enough to justify a distinct message and channel plan.</li></ul><p class="discussion-question" data-editable>Should “Easy Promotions” become a secondary target, or would that dilute the program’s position?</p></div></div>
+        <div class="decision-layout"><div class="target-bubble" data-editable>Selected for the positioning exercise<br><strong>Easy Promotions</strong></div><div><ul class="slide-list" data-editable><li>This is one of the two largest segments and has a clear, interpretable need profile.</li><li>Its members want a convenient and affordable MBA that supports promotion within their current firm.</li><li>The program can evaluate concrete changes in scheduling, price, location, and employer relevance.</li></ul><p class="discussion-question" data-editable>What would justify prioritizing “Mobility Minded” instead? Targeting requires a managerial choice, not only a mechanical reading of the matrix.</p></div></div>
       `)
     },
-    "39": {
+    "33": {
+      html: slide("Positioning", `
+        <div class="positioning-concept-layout">
+          <div class="positioning-definition"><h2 data-editable>A relative place in the customer’s mind</h2><p data-editable>Positioning describes how the target segment understands an offering compared with alternatives. A strong position connects a benefit the segment values with a reason to believe the firm can deliver it.</p><p data-editable>Managers can change the actual offering through product, service, price, and channel decisions. They can change perceptions through communication and customer experience. The two must remain consistent.</p></div>
+          <div class="positioning-questions-simple"><h2 data-editable>A positioning decision answers</h2><ol data-editable><li><strong>Who</strong> is the target customer?</li><li><strong>What</strong> need should the offering own?</li><li><strong>Why</strong> should the customer believe this program is the better choice?</li></ol></div>
+        </div>
+        <p class="positioning-template" data-editable>For [target customer], our offering provides [valued benefit] because [credible evidence].</p>
+      `, "positioning-concept-slide")
+    },
+    "34": {
       html: slide("MBA Case: Positioning Question", `
-        <div class="positioning-brief"><h2 data-editable>Target customer</h2><p data-editable>Mobility-minded professionals seeking career advancement and a credible degree.</p><h2 data-editable>Competitive frame</h2><p data-editable>Regional MBA programs that differ in prestige, convenience, affordability, and career support.</p><h2 data-editable>Decision</h2><p data-editable>Which two dimensions best represent the target segment’s trade-offs?</p></div>
+        <div class="positioning-brief"><h2 data-editable>Target customer</h2><p data-editable>Experienced working professionals who want a convenient and affordable MBA to support promotion within their current firm.</p><h2 data-editable>Competitive frame</h2><p data-editable>Regional MBA programs that differ in convenience, affordability, prestige, and career support.</p><h2 data-editable>Decision</h2><p data-editable>How do these applicants perceive the program and its competitors on convenience and affordability?</p></div>
       `)
     },
-    "40": {
-      html: slide("MBA Case: Perceptual Map", `
+    "35": {
+      html: slide("MBA Positioning: Perceptual Map", `
         <div class="perceptual-native" aria-label="Editable perceptual map for the MBA case">
           <span class="perceptual-y" data-editable>More convenient</span><span class="perceptual-y low" data-editable>Less convenient</span><span class="perceptual-x" data-editable>More affordable</span><span class="perceptual-x low" data-editable>Less affordable</span>
           <i class="cross vertical"></i><i class="cross horizontal"></i>
           <span class="school uw" data-editable>UW Seattle</span><span class="school bothell" data-editable>UW Bothell</span><span class="school seattleu" data-editable>Seattle U</span><span class="school oregon" data-editable>U Oregon</span><span class="school cornell" data-editable>Cornell</span><span class="school berkeley" data-editable>Berkeley</span>
           <div class="ideal-segment" data-editable>Easy Promotions<br>ideal point</div><div class="position-vector">↗</div>
         </div>
-        ${source("The map compares the program and competitors on convenience and affordability for the selected target segment.")}
-      `, "chart-slide")
+        ${source("The map compares the program and competitors on convenience and affordability, two dimensions emphasized by Easy Promotions applicants.")}
+      `, "chart-slide compact-title-slide")
     },
-    "41": {
+    "36": {
       html: slide("MBA Case: Interpreting the Positioning Gap", `
-        <div class="gap-layout"><div class="map-point current" data-editable>Current perception</div><div class="gap-arrow">→</div><div class="map-point desired" data-editable>Target preference</div><ul class="slide-list" data-editable><li>The distance between the program and the segment ideal identifies a positioning gap.</li><li>Communication can change perceptions only when the program has credible evidence.</li><li>Large operational gaps require changes to the offering, not only a new message.</li></ul></div>
+        <div class="gap-layout"><div class="map-point current" data-editable>Current program perception</div><div class="gap-arrow">→</div><div class="map-point desired" data-editable>Target segment preference</div><ul class="slide-list" data-editable><li>The distance between the program and the target’s ideal point identifies a positioning gap.</li><li>Communication can change perceptions only when the program has credible evidence.</li><li>Large operational gaps require changes to the offering, not only a new message.</li></ul></div>
+      `, "compact-title-slide")
+    },
+    "37": {
+      html: slide("Positioning Statement", `
+        <div class="position-statement" data-editable>For experienced professionals who want promotion without disrupting work, the MBA program offers a convenient and affordable path to advancement because its schedule, local access, and employer-relevant curriculum support working students.</div>
+        <div class="statement-check"><span data-editable><strong>Target:</strong> experienced working professionals</span><span data-editable><strong>Need:</strong> promotion with convenience and affordability</span><span data-editable><strong>Reason to believe:</strong> schedule, access, and employer-relevant curriculum</span></div>
       `)
     },
-    "42": {
-      html: slide("MBA Case: Positioning Statement", `
-        <div class="position-statement" data-editable>For mobility-minded professionals who want career advancement without leaving work, the MBA program offers a flexible, credible path to a stronger professional network because its schedule, curriculum, and employer connections support working students.</div>
-        <div class="statement-check"><span data-editable><strong>Target:</strong> mobility-minded professionals</span><span data-editable><strong>Need:</strong> advancement with flexibility</span><span data-editable><strong>Reason to believe:</strong> schedule, curriculum, and employer network</span></div>
-      `)
-    },
-    "43": {
+    "38": {
       html: slide("MBA Case: From Positioning to Action", `
-        <div class="action-flow"><section><h2 data-editable>Offering</h2><p data-editable>Scheduling, curriculum, and career services must support the promise.</p></section><section><h2 data-editable>Message</h2><p data-editable>Show credible evidence of career mobility and flexible participation.</p></section><section><h2 data-editable>Channels</h2><p data-editable>Reach working professionals through employers, alumni, and targeted digital media.</p></section></div>
+        <div class="action-flow"><section><h2 data-editable>Offering</h2><p data-editable>Flexible scheduling, transparent total cost, local access, and employer-relevant coursework must support the promise.</p></section><section><h2 data-editable>Message</h2><p data-editable>Show how working students can earn the degree while preparing for promotion at their current firm.</p></section><section><h2 data-editable>Channels</h2><p data-editable>Reach experienced professionals through employers, alumni, and targeted digital media.</p></section></div>
       `)
     },
-    "44": {
+    "39": {
+      html: slide("MBA Case: Complete STP Process", `
+        <div class="mba-stp-summary">
+          <section><span>1</span><h2 data-editable>Segmenting</h2><p data-editable>Twelve survey questions were condensed into five need factors. Applicants with similar factor profiles formed six segments.</p><strong data-editable>Output: interpretable applicant groups</strong></section>
+          <section><span>2</span><h2 data-editable>Targeting</h2><p data-editable>The GE matrix compared market attractiveness with the program’s competitive strength in each segment.</p><strong data-editable>Exercise decision: select Easy Promotions</strong></section>
+          <section><span>3</span><h2 data-editable>Positioning</h2><p data-editable>The program translated the target’s needs into a promise of promotion, convenience, and affordability.</p><strong data-editable>Result: a focused value proposition</strong></section>
+        </div>
+      `, "mba-stp-summary-slide compact-title-slide")
+    },
+    "40": {
       html: slide("Exercise: Describe Your Firm’s STP", `
         <div class="stp-exercise"><section><h2 data-editable>Segmenting</h2><p data-editable>How is the market divided?</p><div></div><div></div></section><section><h2 data-editable>Targeting</h2><p data-editable>Which segment receives priority?</p><div></div><div></div></section><section><h2 data-editable>Positioning</h2><p data-editable>What distinct value should the target perceive?</p><div></div><div></div></section></div>
       `)
     },
+    "45": { pageNumber: "41" },
     "46": {
+      pageNumber: "42",
       html: slide("What Does It Mean for a Firm to Be Customer Centric?", `
         <p class="lead" data-editable>A customer-centric firm places customer needs at the center of its vision, decisions, processes, structure, culture, and metrics.</p>
         <div class="iop-grid"><section><h2 data-editable>Input</h2><p data-editable>Use customer needs and feedback to guide decisions.</p><ul class="slide-list" data-editable><li>Customer and channel councils</li><li>Managers listening in the call center</li></ul></section><section><h2 data-editable>Output</h2><p data-editable>Measure success from the customer’s perspective.</p><ul class="slide-list" data-editable><li>Customer satisfaction</li><li>Loyalty and Net Promoter Score</li></ul></section><section><h2 data-editable>Processes</h2><p data-editable>Link customer information to operating systems.</p><ul class="slide-list" data-editable><li>Compensation</li><li>Scorecards and dashboards</li></ul></section></div>
       `)
     },
+    "47": { pageNumber: "43" },
+    "48": { pageNumber: "44" },
+    "49": { pageNumber: "45" },
+    "50": { pageNumber: "46" },
+    "51": { pageNumber: "47" },
     "52": {
+      pageNumber: "48",
       html: slide("Week 2 Recap and Next Week", `
         <div class="recap-layout"><section><h2 data-editable>Covered today</h2><ul class="slide-list" data-editable><li>Why all customers differ</li><li>Five sources of heterogeneity and latent demand</li><li>Evolution from mass marketing to STP and customer centricity</li><li>Factor analysis, clustering, classification, targeting, and positioning through the MBA case</li></ul></section><section><h2 data-editable>Next week</h2><ul class="slide-list" data-editable><li>The customer heterogeneity framework</li><li>AI Frontiers: embedding-based segmentation</li><li>Guided EMBA segmentation homework workshop</li></ul></section></div>
       `)
