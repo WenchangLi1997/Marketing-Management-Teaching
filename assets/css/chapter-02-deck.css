@@ -324,9 +324,10 @@ body {
 .assumption-source-layout { display: grid; grid-template-rows: 1fr auto; gap: 10px; height: 383px; }
 .assumption-source-list { font-size: 15.5px; line-height: 1.14; }
 .assumption-source-list > li { margin-bottom: 8px; }
-.assumption-source-list ul { margin-top: 4px; }
-.assumption-source-list ul li { margin-bottom: 4px; font-size: 14.5px; }
-.marketing-principle { display: grid; min-height: 76px; place-items: center; padding: 12px 22px; border-radius: 12px; color: #fff; background: #163f63; text-align: center; font-size: 20px; line-height: 1.13; }
+.assumption-source-list ul { margin-top: 4px; padding-left: 8px; }
+.assumption-source-list ul li { margin-bottom: 4px; padding-left: 30px; font-size: 14.5px; }
+.assumption-source-list ul li::before { left: 5px; }
+.marketing-principle { display: flex; min-height: 76px; align-items: center; justify-content: center; padding: 12px 22px; border-radius: 12px; color: #fff; background: #163f63; text-align: center; font-size: 19px; line-height: 1.16; }
 
 .source-image-slide .custom-title { margin-bottom: 10px; font-size: 32px; }
 .source-image-slide .custom-body { display: grid; height: 430px; place-items: center; }
@@ -361,7 +362,7 @@ body {
 .position-link .dark-output { min-height: 170px; font-size: 21px; }
 
 .stp-source-slide .custom-title { margin-bottom: 13px; font-size: 32px; }
-.stp-source-layout { display: grid; grid-template-rows: 1fr 122px; gap: 12px; height: 388px; }
+.stp-source-layout { display: grid; grid-template-rows: 1fr 152px; gap: 7px; height: 388px; }
 .stp-source-copy { font-size: 15.8px; line-height: 1.15; }
 .stp-source-copy li { margin-bottom: 7px; }
 .stp-source-copy strong { color: #194c75; }
@@ -372,6 +373,9 @@ body {
 .stp-modern-graphic strong { margin-bottom: 4px; font-size: 18px; }
 .stp-modern-graphic span { font-size: 13px; line-height: 1.15; }
 .stp-modern-graphic b { align-self: center; color: var(--teal); font-size: 24px; text-align: center; }
+.stp-visual-process { display: grid; grid-template-rows: 126px 24px; height: 150px; align-items: center; }
+.stp-visual-process img { display: block; width: 100%; height: 126px; object-fit: contain; }
+.stp-visual-labels { display: grid; grid-template-columns: 1.25fr .75fr 1fr; align-items: center; color: #143f62; font-size: 15px; font-weight: 700; text-align: center; }
 
 .segmenting-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 38px; align-items: end; height: 348px; }
 .numbered-steps { margin: 18px 0 0; padding-left: 30px; }
@@ -395,6 +399,18 @@ body {
 .method-number { display: inline-grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; color: #fff; background: var(--teal); }
 .method-arrow { font-size: 28px; }
 
+.case-method-intro { display: grid; grid-template-columns: .94fr 1.06fr; gap: 30px; align-items: stretch; height: 350px; }
+.case-method-background { padding: 20px 22px; border-left: 5px solid var(--teal); background: #f3f7f8; }
+.case-method-background h2 { margin: 12px 0 4px; color: #143f62; font-size: 19px; }
+.case-method-background h2:first-child { margin-top: 0; }
+.case-method-background p { font-size: 15px; line-height: 1.22; }
+.case-method-plan { display: grid; gap: 9px; }
+.case-method-plan > h2 { color: #143f62; }
+.case-method-plan section { display: grid; grid-template-columns: 38px 1fr; gap: 12px; align-items: center; padding: 12px 14px; border-top: 3px solid var(--teal); background: #f3f7f8; }
+.case-method-plan section > span { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; color: #fff; background: var(--teal); font-size: 17px; }
+.case-method-plan strong { display: block; color: #143f62; font-size: 18px; }
+.case-method-plan p { margin-top: 2px; font-size: 14px; line-height: 1.18; }
+
 .method-theory-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: center; height: 342px; }
 .theory-copy { padding: 23px 22px; border-left: 5px solid var(--teal); background: #f3f7f8; }
 .theory-copy h2 { color: #143f62; }
@@ -406,6 +422,19 @@ body {
 .theory-steps strong { margin-bottom: 3px; color: #143f62; font-size: 19px; }
 .theory-steps span { font-size: 15px; line-height: 1.2; }
 .classification-theory .theory-copy p { font-size: 16px; }
+
+.method-deliverables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; height: 330px; }
+.method-deliverables section { position: relative; padding: 54px 18px 18px; border-top: 5px solid var(--teal); background: #f3f7f8; }
+.method-deliverables section > span { position: absolute; top: 14px; left: 18px; display: grid; width: 29px; height: 29px; place-items: center; border-radius: 50%; color: #fff; background: var(--teal); }
+.method-deliverables h2 { color: #143f62; font-size: 20px; }
+.method-deliverables p { margin-top: 14px; font-size: 15px; line-height: 1.23; }
+
+.segmentation-complete { display: grid; grid-template-columns: 1.15fr .85fr; gap: 36px; align-items: center; height: 340px; }
+.segmentation-complete h2 { color: #143f62; }
+.segmentation-complete .slide-list { margin-top: 18px; font-size: 17px; }
+.next-decision { display: flex; min-height: 220px; flex-direction: column; align-items: center; justify-content: center; padding: 28px; color: #fff; background: #163f63; text-align: center; }
+.next-decision strong { margin-bottom: 16px; font-size: 22px; }
+.next-decision span { font-size: 20px; line-height: 1.24; }
 
 .mba-case { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center; height: 340px; }
 .mba-case h2 { margin-top: 18px; }
