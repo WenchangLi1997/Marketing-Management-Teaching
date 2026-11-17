@@ -38,24 +38,35 @@
       `)
     },
     "7": {
-      html: slide("Five Sources of Customer Heterogeneity: Part 2", `
+      html: slide("Five Sources of Customer Heterogeneity<br><span class=\"title-part\">Part 2</span>", `
         <div class="source-list source-list-three">
           <section class="source-item"><h2 data-editable>3. Functional needs</h2><ul class="slide-list"><li data-editable><strong>Description:</strong> Customers hire an offering to solve different practical problems.</li><li data-editable><strong>Examples:</strong> Convenience, reliability, speed, safety, and performance.</li></ul></section>
           <section class="source-item"><h2 data-editable>4. Self-identity and image</h2><ul class="slide-list"><li data-editable><strong>Description:</strong> Choices express identity or signal membership in a social group.</li><li data-editable><strong>Examples:</strong> Style, status, sustainability values, and professional identity.</li></ul></section>
           <section class="source-item"><h2 data-editable>5. Marketing activities</h2><ul class="slide-list"><li data-editable><strong>Description:</strong> Different exposures and relationship histories create different responses.</li><li data-editable><strong>Examples:</strong> Advertising, promotions, channels, loyalty programs, and sales contact.</li></ul></section>
         </div>
-      `)
+      `, "split-title-slide")
     },
     "8": {
-      html: slide("Customer Heterogeneity: A Fundamental Assumption", `
-        <div class="assumption-layout">
-          <ul class="slide-list" data-editable>
-            <li>Every market contains meaningful variation in customer needs, preferences, and response.</li>
-            <li>Some differences are visible in behavior; others remain latent until technology, regulation, or competition makes them actionable.</li>
+      html: slide("Customer Heterogeneity: A Fundamental Assumption of Marketing Strategy", `
+        <div class="assumption-source-layout">
+          <ul class="slide-list assumption-source-list" data-editable>
+            <li>Customer heterogeneity is a fundamental “problem” that all firms must address when developing an effective marketing strategy.</li>
+            <li>Customer heterogeneity may be latent or hidden.
+              <ul>
+                <li>Customers vary on some underlying preferences, but no firms are supplying offerings that fit their desires, so those preferences are not evident.</li>
+                <li>Customers might not even know of their diverse preferences because they have no options to evaluate.</li>
+              </ul>
+            </li>
+            <li>Assuming all customers are the same is a recipe for failure, at least in the long term, as competitors will better satisfy subsegments with more aligned offerings, leading to a downward spiral in which the firm has fewer, less profitable customers that are more costly to serve.</li>
           </ul>
-          <div class="blue-statement" data-editable>Effective marketing begins by recognizing which differences matter for the decision at hand.</div>
+          <div class="marketing-principle" data-editable><strong>Marketing principle #1:</strong> all customers differ and an effective marketing strategy must manage ever-present customer heterogeneity.</div>
         </div>
-      `)
+      `, "assumption-source-slide")
+    },
+    "12": {
+      html: slide("Evolution of Approaches for Managing Customer Heterogeneity", `
+        <img class="source-figure source-evolution-figure" src="../../assets/images/chapter-02-elements/slide-12-object-03.png" alt="Original Chapt 2 diagram showing the evolution from mass marketing to niche marketing and one-to-one marketing">
+      `, "source-image-slide")
     },
     "10": {
       html: slide("Example: The U.S. OTC Hearing-Aid Market", `
@@ -74,33 +85,47 @@
     },
     "15": {
       html: slide("Segmenting, Targeting, and Positioning (STP) Approach", `
-        <div class="stp-layout">
-          <div class="stp-flow" aria-label="STP process">
-            <div class="stp-node"><strong data-editable>Segmenting</strong><span data-editable>Identify groups with similar needs</span></div>
-            <div class="stp-arrow">↓</div>
-            <div class="stp-node"><strong data-editable>Targeting</strong><span data-editable>Select segments where the firm can create value</span></div>
-            <div class="stp-arrow">↓</div>
-            <div class="stp-node"><strong data-editable>Positioning</strong><span data-editable>Build a distinct place in the target customer’s mind</span></div>
+        <div class="stp-source-layout">
+          <ul class="slide-list stp-source-copy" data-editable>
+            <li>In order to better match heterogeneous customer needs, firms focus their efforts on small “homogenous” customer groups.</li>
+            <li><strong>Segmenting:</strong> Dividing the market into groups of similar customers, or slicing the pie into pieces.</li>
+            <li><strong>Targeting:</strong> Selecting the best customer group to sell to, or picking the slice to eat.</li>
+            <li><strong>Positioning:</strong> Improve your relative advantage in the minds of your targeted customers. This also addresses Marketing Principle #3 by building sustainable competitive advantage.</li>
+          </ul>
+          <div class="stp-modern-graphic" aria-label="Editable segmenting, targeting, and positioning process">
+            <section><strong data-editable>Segmenting</strong><span data-editable>Find meaningful customer groups</span></section>
+            <b aria-hidden="true">→</b>
+            <section><strong data-editable>Targeting</strong><span data-editable>Select the group to serve</span></section>
+            <b aria-hidden="true">→</b>
+            <section><strong data-editable>Positioning</strong><span data-editable>Build a valued place in its mind</span></section>
           </div>
-          <div class="position-link"><div class="horizontal-arrow">→</div><div class="dark-output" data-editable>Clear value proposition for a defined target customer</div></div>
         </div>
-      `)
+      `, "stp-source-slide")
     },
     "16": {
       html: slide("Segmenting", `
-        <div class="segmenting-layout">
-          <div>
-            <p class="lead" data-editable>Divide the market so customers within a segment are similar on the needs that matter, while customers across segments are meaningfully different.</p>
-            <ol class="numbered-steps" data-editable>
-              <li>Define the market and potential customers.</li><li>Identify needs and useful descriptors.</li><li>Collect customer-level data.</li><li>Reduce and group the data.</li><li>Profile and name the segments.</li>
-            </ol>
-          </div>
-          <div class="segment-output" data-editable><strong>Segment profile</strong><span>Needs</span><span>Size and value</span><span>Customer descriptors</span></div>
+        <div class="segmenting-source-layout">
+          <ul class="slide-list segmenting-source-list" data-editable>
+            <li>Consists of dividing the market into groups of customers where:
+              <ul>
+                <li>Customers within a group have very similar needs.</li>
+                <li>Customers across groups have different needs.</li>
+              </ul>
+            </li>
+            <li><strong>Needs:</strong> Needs and benefits desired by customers for your offering.
+              <ul>
+                <li>Segment on needs and benefits, not descriptors.</li>
+                <li>Uses one of the “Cs” as input: <strong>customers</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Descriptors:</strong> Observable customer characteristics that help you find and classify customers, such as gender, age, income, size, and education.</li>
+          </ul>
         </div>
-      `)
+      `, "segmenting-source-slide")
     },
     "18": {
-      html: slide("Three Methods Turn Survey Data into Segments", `
+      html: slide("From Segmentation Steps to an Analytical Workflow", `
+        <p class="method-transition" data-editable>Page 17 defined the segmentation process. The analytical core of its third step uses three methods to convert need ratings into segments that managers can understand, identify, and serve.</p>
         <div class="method-pipeline">
           <section><span class="method-number">1</span><h2 data-editable>Factor analysis</h2><p data-editable>Condenses correlated need ratings into a smaller set of interpretable dimensions.</p></section>
           <div class="method-arrow">→</div>
@@ -108,7 +133,7 @@
           <div class="method-arrow">→</div>
           <section><span class="method-number">3</span><h2 data-editable>Discriminant and classification analyses</h2><p data-editable>Explain segment differences and classify future applicants.</p></section>
         </div>
-      `)
+      `, "method-transition-slide")
     },
     "19": {
       html: slide("MBA Program Segmentation Case", `
@@ -129,6 +154,23 @@
         </div>
       `)
     },
+    "20a": {
+      pageNumber: "20A",
+      html: slide("Factor Analysis: Method Intuition", `
+        <div class="method-theory-layout factor-theory">
+          <div class="theory-copy">
+            <h2 data-editable>What the method assumes</h2>
+            <p data-editable>Several observed survey items may reflect the same unobserved need. Their correlations provide evidence of that shared latent factor.</p>
+            <div class="method-equation" data-editable>x<sub>j</sub> = λ<sub>j1</sub>F<sub>1</sub> + … + λ<sub>jm</sub>F<sub>m</sub> + ε<sub>j</sub></div>
+          </div>
+          <div class="theory-steps">
+            <section><strong data-editable>Loadings</strong><span data-editable>Show how strongly each survey item relates to each factor.</span></section>
+            <section><strong data-editable>Rotation</strong><span data-editable>Makes the loading pattern easier to interpret and name.</span></section>
+            <section><strong data-editable>Factor scores</strong><span data-editable>Place every respondent on each latent need dimension and become the inputs to clustering.</span></section>
+          </div>
+        </div>
+      `, "method-theory-slide")
+    },
     "21": {
       html: slide("MBA Case: Cluster Analysis", `
         <div class="input-output-layout cluster-layout">
@@ -140,6 +182,23 @@
         </div>
       `)
     },
+    "21a": {
+      pageNumber: "21A",
+      html: slide("Cluster Analysis: Method Intuition", `
+        <div class="method-theory-layout cluster-theory">
+          <div class="theory-copy">
+            <h2 data-editable>What the method does</h2>
+            <p data-editable>Cluster analysis searches for groups whose members have similar factor-score profiles. The groups should be internally cohesive and meaningfully different from one another.</p>
+            <div class="method-equation" data-editable>Choose assignments that minimize within-cluster distance</div>
+          </div>
+          <div class="theory-steps">
+            <section><strong data-editable>Distance</strong><span data-editable>Measures how similar two respondents are after the inputs have been standardized.</span></section>
+            <section><strong data-editable>Centroids</strong><span data-editable>Summarize the average need profile of each cluster.</span></section>
+            <section><strong data-editable>Number of clusters</strong><span data-editable>Combines statistical separation and stability with managerial interpretability and actionability.</span></section>
+          </div>
+        </div>
+      `, "method-theory-slide")
+    },
     "22": {
       html: slide("MBA Case: Hierarchical Clustering", `
         <div class="hierarchical-layout">
@@ -147,6 +206,23 @@
           <div class="dendrogram" aria-label="Simplified hierarchical clustering dendrogram"><div class="leaf-row"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div><div class="merge-row merge-one"><i></i><i></i><i></i></div><div class="merge-row merge-two"><i></i><i></i></div><div class="merge-row merge-three"><i></i></div><p data-editable>Merge distance increases upward</p></div>
         </div>
       `)
+    },
+    "22a": {
+      pageNumber: "22A",
+      html: slide("Discriminant and Classification Analyses: Method Intuition", `
+        <div class="method-theory-layout classification-theory">
+          <div class="theory-copy">
+            <h2 data-editable>From discovered segments to an assignment rule</h2>
+            <p data-editable>The cluster solution supplies known group labels. Discriminant analysis then finds weighted combinations of observable descriptors that separate those groups.</p>
+            <div class="method-equation" data-editable>Score<sub>g</sub> = a<sub>g</sub> + b<sub>g1</sub>x<sub>1</sub> + … + b<sub>gp</sub>x<sub>p</sub></div>
+          </div>
+          <div class="theory-steps">
+            <section><strong data-editable>Separation</strong><span data-editable>Emphasizes variables that differ across segments relative to variation within segments.</span></section>
+            <section><strong data-editable>Classification</strong><span data-editable>Assigns a new customer to the group with the strongest predicted score or probability.</span></section>
+            <section><strong data-editable>Validation</strong><span data-editable>Uses holdout or cross-validated accuracy and a confusion matrix to test the rule.</span></section>
+          </div>
+        </div>
+      `, "method-theory-slide")
     },
     "23": {
       html: slide("MBA Case: Discriminant and Classification Analyses", `
@@ -160,6 +236,16 @@
     "25": { hidden: true },
     "26": { hidden: true },
     "27": { hidden: true },
+    "29": {
+      html: slide("GE Matrix: Analysis Tool for Targeting", `
+        <img class="source-figure source-ge-figure" src="../../assets/images/chapter-02-elements/slide-29-object-03.png" alt="Original Chapt 2 GE matrix for evaluating target segments">
+      `, "source-image-slide source-matrix-slide")
+    },
+    "31": {
+      html: slide("Perceptual Map: Analysis Tool for Positioning", `
+        <img class="source-figure source-perceptual-figure" src="../../assets/images/chapter-02-elements/slide-31-object-04.png" alt="Original Chapt 2 perceptual map for positioning">
+      `, "source-image-slide source-matrix-slide")
+    },
     "33": {
       html: slide("A Positioning Statement Answers Three Questions", `
         <div class="positioning-questions">
