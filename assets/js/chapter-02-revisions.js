@@ -16,6 +16,18 @@
   `, "agenda-slide");
 
   window.chapter2Revisions = {
+    "1": {
+      pageNumber: "1",
+      html: `
+        <article class="week3-cover">
+          <p class="week-label" data-editable>Marketing Principle #1</p>
+          <h1 data-editable>All Customers Differ</h1>
+          <div class="cover-arrow" aria-hidden="true">→</div>
+          <h2 data-editable>Managing Customer Heterogeneity</h2>
+          <p class="week3-subtitle" data-editable>Week 2</p>
+          <p class="week3-author" data-editable>Yixing Chen</p>
+        </article>`
+    },
     "2": {
       html: agenda(["Introduction", "Approaches", "Takeaways"], 0)
     },
@@ -396,10 +408,21 @@
       `, "original-framework-slide dynamic-effects-slide compact-title-slide")
     },
     "52": {
-      pageNumber: "47",
+      pageNumber: "48",
       html: slide("Week 2 Recap and Next Week", `
         <div class="recap-layout"><section><h2 data-editable>Covered today</h2><ul class="slide-list" data-editable><li>Why all customers differ</li><li>Five sources of heterogeneity and latent demand</li><li>Evolution from mass marketing to STP and customer centricity</li><li>Factor analysis, clustering, classification, targeting, and positioning through the MBA case</li></ul></section><section><h2 data-editable>Next week</h2><ul class="slide-list" data-editable><li>The customer heterogeneity framework</li><li>Guided EMBA segmentation homework workshop</li><li>AI Frontiers: embedding-based segmentation</li></ul></section></div>
       `)
+    },
+    "week2-takeaways": {
+      pageNumber: "47",
+      html: slide("Takeaways", `
+        <ol class="takeaways-list">
+          <li><span>01</span><p data-editable>Customer differences are the starting point. Some differences remain latent until an offering reveals them.</p></li>
+          <li><span>02</span><p data-editable>Effective segmentation groups customers by similar needs, then uses descriptors to locate them.</p></li>
+          <li><span>03</span><p data-editable>Factor analysis reduces survey items. Cluster analysis forms segments. Classification analysis profiles customers and predicts segment membership.</p></li>
+          <li><span>04</span><p data-editable>Targeting chooses which segments to serve. Positioning and customer centricity align the offering and organization with those customers.</p></li>
+        </ol>
+      `, "takeaways-slide")
     },
     "week3-title": {
       pageNumber: "1",
@@ -409,7 +432,7 @@
           <h1 data-editable>All Customers Differ</h1>
           <div class="cover-arrow" aria-hidden="true">→</div>
           <h2 data-editable>Managing Customer Heterogeneity</h2>
-          <p class="week3-subtitle" data-editable>Week 3 · Framework, Homework Workshop, and AI Frontier</p>
+          <p class="week3-subtitle" data-editable>Week 3</p>
           <p class="week3-author" data-editable>Yixing Chen</p>
         </article>`
     },

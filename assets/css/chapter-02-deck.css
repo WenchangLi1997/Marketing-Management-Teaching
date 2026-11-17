@@ -679,6 +679,13 @@ body {
 .week3-subtitle { margin: 34px 0 0; color: #5e676c; font-size: 19px; }
 .week3-author { position: absolute; bottom: 54px; left: 72px; margin: 0; color: #202124; font-size: 18px; }
 
+.takeaways-slide .custom-title { margin-bottom: 28px; }
+.takeaways-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.takeaways-list li { display: grid; grid-template-columns: 70px 1fr; align-items: center; min-height: 82px; border-top: 1px solid #d8dee2; }
+.takeaways-list li:last-child { border-bottom: 1px solid #d8dee2; }
+.takeaways-list span { color: #173f63; font-size: 22px; font-weight: 700; }
+.takeaways-list p { max-width: 535px; color: #303438; font-size: 17.5px; line-height: 1.22; }
+
 .source-screenshot-slide .custom-title { margin-bottom: 9px; font-size: 27px; line-height: 1.03; white-space: normal; }
 .source-screenshot-slide .custom-body { height: 445px; }
 .source-middle-crop { position: relative; width: 100%; margin: 0; overflow: hidden; background: #fff; }
