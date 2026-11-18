@@ -33,11 +33,17 @@ window.courseData = {
       number: 3,
       title: "MP#1: Framework and examples for managing customer heterogeneity",
       description:
-        "The inputs, outputs, and process of the customer heterogeneity framework, followed by AI Frontiers on embedding-based segmentation and a guided EMBA segmentation homework workshop.",
+        "The inputs, outputs, and process of the customer heterogeneity framework, followed by an INSEAD Boats case workshop in SPSS and an AI Frontier on embedding-based segmentation.",
       resources: {
         slides: [
           { label: "Web", url: "./materials/slides/week-03-clustering-ai.html" },
           { label: "PDF", url: "./materials/slides/week-03-clustering-ai.pdf" },
+        ],
+        data: [
+          { label: "Boats dataset", url: "./materials/data/week-03-boats.csv" },
+        ],
+        other: [
+          { label: "INSEAD segmentation guide", url: "https://inseaddataanalytics.github.io/INSEADAnalytics/CourseSessions/InClassProcess/MarketSegmentationProcessInClass.html" },
         ],
       },
     },

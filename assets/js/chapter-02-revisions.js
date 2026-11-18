@@ -10,7 +10,7 @@
   const source = text => `<p class="slide-source" data-editable>${text}</p>`;
 
   const agenda = (items, activeIndex) => slide("Agenda", `
-    <div class="vertical-agenda agenda-minimal">
+    <div class="vertical-agenda agenda-minimal ${items.length === 4 ? "agenda-four" : ""}">
       ${items.map((item, index) => `<section class="${index === activeIndex ? "active" : ""}"><span>${String(index + 1).padStart(2, "0")}</span><div><h2 data-editable>${item}</h2></div></section>`).join("")}
     </div>
   `, "agenda-slide");
@@ -410,7 +410,7 @@
     "52": {
       pageNumber: "48",
       html: slide("Week 2 Recap and Next Week", `
-        <div class="recap-layout"><section><h2 data-editable>Covered today</h2><ul class="slide-list" data-editable><li>Why all customers differ</li><li>Five sources of heterogeneity and latent demand</li><li>Evolution from mass marketing to STP and customer centricity</li><li>Factor analysis, clustering, classification, targeting, and positioning through the MBA case</li></ul></section><section><h2 data-editable>Next week</h2><ul class="slide-list" data-editable><li>The customer heterogeneity framework</li><li>Guided EMBA segmentation homework workshop</li><li>AI Frontiers: embedding-based segmentation</li></ul></section></div>
+        <div class="recap-layout"><section><h2 data-editable>Covered today</h2><ul class="slide-list" data-editable><li>Why all customers differ</li><li>Five sources of heterogeneity and latent demand</li><li>Evolution from mass marketing to STP and customer centricity</li><li>Factor analysis, clustering, classification, targeting, and positioning through the MBA case</li></ul></section><section><h2 data-editable>Next week</h2><ul class="slide-list" data-editable><li>The customer heterogeneity framework</li><li>INSEAD Boats case workshop in SPSS</li><li>AI Frontier: embedding-based segmentation</li></ul></section></div>
       `)
     },
     "week2-takeaways": {
@@ -438,7 +438,7 @@
     },
     "week3-agenda": {
       pageNumber: "2",
-      html: agenda(["Framework", "Homework workshop", "AI Frontier"], 0)
+      html: agenda(["Framework", "Case Workshop", "AI Frontier", "Takeaways"], 0)
     },
     "53": {
       pageNumber: "3",
@@ -480,30 +480,117 @@
         <figure class="source-middle-crop framework-example-crop"><img src="../../assets/images/chapter-02-elements/slide-64-original-full-v1.png" alt="Original Chapt 2 example illustrating segmenting, targeting, and positioning for athletic wear customers"></figure>
       `, "source-screenshot-slide compact-title-slide")
     },
+    "week3-agenda-case": {
+      pageNumber: "12",
+      html: agenda(["Framework", "Case Workshop", "AI Frontier", "Takeaways"], 1)
+    },
+    "boats-case": {
+      pageNumber: "13",
+      html: slide("INSEAD Boats Case", `
+        <div class="boats-case-intro">
+          <div>
+            <p class="lead" data-editable>The Boats case comes from INSEAD’s Data Science for Business teaching materials. It uses customer survey data to connect purchase drivers with market segmentation.</p>
+            <h2 data-editable>Business questions</h2>
+            <ul class="slide-list" data-editable>
+              <li>Which attributes drive customers’ boat purchase decisions?</li>
+              <li>Do customers form distinct market segments?</li>
+              <li>How should the company adapt product development and brand positioning?</li>
+            </ul>
+          </div>
+          <div class="boats-process" aria-label="Boats case analytical process">
+            <span data-editable>Survey responses</span><b aria-hidden="true">→</b><span data-editable>Factor analysis</span><b aria-hidden="true">→</b><span data-editable>Market segments</span><b aria-hidden="true">→</b><span data-editable>Business decisions</span>
+          </div>
+        </div>
+        ${source("Source: INSEAD Data Science for Business, A Market Segmentation and Purchase Drivers Process.")}
+      `, "boats-case-slide")
+    },
+    "boats-data": {
+      pageNumber: "14",
+      html: slide("Boats Survey Data", `
+        <div class="boats-data-layout">
+          <div class="boats-data-summary"><strong data-editable>2,813</strong><span data-editable>respondents</span><strong data-editable>82</strong><span data-editable>variables</span></div>
+          <div class="boats-variable-list">
+            <section><h2 data-editable>RESPID</h2><p data-editable>Unique respondent identifier.</p></section>
+            <section><h2 data-editable>Q1.1 to Q1.29</h2><p data-editable>Twenty-nine five-point attitude ratings. These variables enter the factor analysis.</p></section>
+            <section><h2 data-editable>Q2 to Q18</h2><p data-editable>Additional survey measures for later segmentation and purchase-driver analyses.</p></section>
+          </div>
+        </div>
+        <p class="boats-focus" data-editable>Workshop focus today: inspect the data and reduce the 29 attitude items to a smaller set of interpretable factors.</p>
+      `, "boats-data-slide")
+    },
+    "boats-import": {
+      pageNumber: "15",
+      html: slide("SPSS: Import the Boats Data", `
+        <div class="boats-screenshot-wide"><img src="../../assets/images/cases/week3-boats-spss-import-v1.png" alt="SPSS Data View showing the imported Boats survey data"></div>
+        <ol class="boats-inline-steps" data-editable><li>Open <strong>week-03-boats.csv</strong>.</li><li>Confirm that the survey columns are numeric.</li><li>Check for 2,813 cases and 82 variables.</li></ol>
+      `, "boats-screenshot-slide")
+    },
+    "boats-descriptives": {
+      pageNumber: "16",
+      html: slide("SPSS: Descriptive Statistics", `
+        <div class="boats-descriptive-layout">
+          <figure><img src="../../assets/images/cases/week3-boats-descriptives-v1.png" alt="SPSS descriptive statistics for Boats attitude variables"></figure>
+          <div><h2 data-editable>Initial checks</h2><ul class="slide-list" data-editable><li>Each displayed Q1 item has 2,813 observations.</li><li>The observed range is 1 to 5, consistent with the survey scale.</li><li>Means range from 2.86 to 4.25 in the displayed output.</li><li>Standard deviations range from 0.72 to 1.15, so the items contain useful variation.</li></ul><p class="interpretation-note" data-editable>Before factor analysis, investigate missing values, impossible codes, and variables with almost no variation.</p></div>
+        </div>
+      `, "boats-descriptive-slide")
+    },
+    "boats-factor-setup": {
+      pageNumber: "17",
+      html: slide("SPSS: Factor Analysis Setup", `
+        <div class="boats-factor-layout"><figure><img src="../../assets/images/cases/week3-boats-factor-dialog-v1.png" alt="SPSS Factor Analysis dialog with Q1 attitude variables selected"></figure><ol class="boats-factor-steps" data-editable><li>Open <strong>Analyze</strong>, then <strong>Dimension Reduction</strong>, then <strong>Factor</strong>.</li><li>Move Q1.1 through Q1.29 into the Variables box.</li><li>Request KMO and Bartlett’s test.</li><li>Request the scree plot and an initial factor solution.</li></ol></div>
+      `, "boats-factor-slide")
+    },
+    "boats-factor-kmo": {
+      pageNumber: "18",
+      html: slide("Are the Attitude Items Suitable for Factor Analysis?", `
+        <div class="boats-result-layout"><figure class="kmo-result"><img src="../../assets/images/cases/week3-boats-kmo-bartlett-v1.png" alt="SPSS KMO and Bartlett test output"></figure><div class="boats-result-copy"><p data-editable><strong>KMO = .942.</strong> The items share enough common variance to support factor analysis.</p><p data-editable><strong>Bartlett’s test: χ²(406) = 28,455.393, p &lt; .001.</strong> The correlation matrix differs significantly from an identity matrix.</p><p class="result-conclusion" data-editable>Conclusion: the 29 attitude items are suitable for extracting a smaller set of factors.</p></div></div>
+      `, "boats-result-slide compact-title-slide")
+    },
+    "boats-factor-scree": {
+      pageNumber: "19",
+      html: slide("How Many Factors?", `
+        <div class="boats-scree-layout"><figure><img src="../../assets/images/cases/week3-boats-scree-plot-v1.png" alt="SPSS scree plot for the 29 Boats attitude variables"></figure><div><h2 data-editable>Reading the plot</h2><ul class="slide-list" data-editable><li>The curve drops sharply across the first components.</li><li>The elbow appears after Component 5.</li><li>The first five components have eigenvalues above 1.</li></ul><p class="result-conclusion" data-editable>Use five factors as the starting solution, then confirm the choice with rotated loadings and managerial interpretability.</p></div></div>
+      `, "boats-scree-slide")
+    },
+    "week3-agenda-ai": {
+      pageNumber: "20",
+      html: agenda(["Framework", "Case Workshop", "AI Frontier", "Takeaways"], 2)
+    },
     "ai-intuition": {
-      pageNumber: "22",
-      html: slide("AI Frontiers: The Intuition Behind Embeddings", `
+      pageNumber: "21",
+      html: slide("AI Frontier: The Intuition Behind Embeddings", `
         <div class="embedding-intuition"><div class="text-samples"><span data-editable>“I need a flexible schedule because I travel every week.”</span><span data-editable>“Career mobility matters more than campus amenities.”</span><span data-editable>“I want a strong peer network in my industry.”</span></div><div class="embedding-arrow">→</div><div class="vector-space"><i class="point p1"></i><i class="point p2"></i><i class="point p3"></i><span data-editable>Semantically similar responses are placed near one another in a numerical vector space.</span></div></div>
         ${source("Conceptual basis: Reimers and Gurevych, Sentence-BERT, EMNLP 2019.")}
       `)
     },
     "ai-advantages": {
-      pageNumber: "23",
+      pageNumber: "22",
       html: slide("Embedding-Based Segmentation Workflow", `
         <div class="embedding-workflow"><section><strong data-editable>1. Collect</strong><span data-editable>Open-ended responses, reviews, call transcripts, or product descriptions</span></section><b>→</b><section><strong data-editable>2. Embed</strong><span data-editable>Convert each customer’s text into a dense semantic vector</span></section><b>→</b><section><strong data-editable>3. Cluster</strong><span data-editable>Use k-means, hierarchical clustering, or a density-based method</span></section><b>→</b><section><strong data-editable>4. Interpret</strong><span data-editable>Name, profile, and validate the segments against business outcomes</span></section></div><div class="advantage-strip"><span data-editable>Captures meaning beyond exact keywords</span><span data-editable>Uses unstructured data at scale</span><span data-editable>Can complement survey variables</span></div>
       `)
     },
     "ai-example": {
-      pageNumber: "24",
+      pageNumber: "23",
       html: slide("Example: Embedding MBA Applicants’ Open-Ended Goals", `
         <div class="embedding-example"><div class="response-column"><h2 data-editable>Applicant responses</h2><p data-editable>“Move into management without leaving my job.”</p><p data-editable>“Change industry and build a new network.”</p><p data-editable>“Gain credibility for a promotion.”</p><p data-editable>“Learn analytics for my current role.”</p></div><div class="mini-map"><span class="cluster-label c1" data-editable>Career mobility</span><span class="cluster-label c2" data-editable>Network changers</span><span class="cluster-label c3" data-editable>Skill builders</span><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><i class="dot d4"></i><i class="dot d5"></i><i class="dot d6"></i></div></div><p class="discussion-question" data-editable>The clusters reveal language and motives that a fixed survey may not anticipate. Managers still need to test whether the groups differ in behavior, value, or response.</p>
       `)
     },
     "ai-limitations": {
-      pageNumber: "25",
+      pageNumber: "24",
       html: slide("Limits and Validation of Embedding-Based Segmentation", `
         <div class="limitations"><section><h2 data-editable>Model dependence</h2><p data-editable>Different embedding models and prompts may change the geometry and the clusters.</p></section><section><h2 data-editable>Interpretability</h2><p data-editable>Cluster labels come from human judgment and can oversimplify mixed motives.</p></section><section><h2 data-editable>Bias and privacy</h2><p data-editable>Text can reveal sensitive attributes and reproduce patterns from the training data.</p></section><section><h2 data-editable>Business validity</h2><p data-editable>Semantic separation matters only if segments differ in size, value, needs, or response.</p></section></div><p class="validation-line" data-editable>Validate stability across models and samples, inspect representative responses, and link clusters to observable outcomes.</p>
       `)
+    },
+    "week3-takeaways": {
+      pageNumber: "25",
+      html: slide("Takeaways", `
+        <ol class="takeaways-list">
+          <li><span>01</span><p data-editable>The framework connects market inputs with segmentation, targeting, positioning, and customer centricity.</p></li>
+          <li><span>02</span><p data-editable>The INSEAD Boats case begins with 29 attitude items from 2,813 respondents.</p></li>
+          <li><span>03</span><p data-editable>KMO and Bartlett’s test support factor analysis. The scree plot suggests a five-factor starting solution.</p></li>
+          <li><span>04</span><p data-editable>Embeddings extend segmentation to unstructured text, but managers must validate stability and business relevance.</p></li>
+        </ol>
+      `, "takeaways-slide")
     },
     "70": {
       pageNumber: "12",
