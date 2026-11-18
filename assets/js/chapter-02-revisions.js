@@ -558,39 +558,207 @@
     },
     "ai-intuition": {
       pageNumber: "21",
-      html: slide("AI Frontier: The Intuition Behind Embeddings", `
-        <div class="embedding-intuition"><div class="text-samples"><span data-editable>“I need a flexible schedule because I travel every week.”</span><span data-editable>“Career mobility matters more than campus amenities.”</span><span data-editable>“I want a strong peer network in my industry.”</span></div><div class="embedding-arrow">→</div><div class="vector-space"><i class="point p1"></i><i class="point p2"></i><i class="point p3"></i><span data-editable>Semantically similar responses are placed near one another in a numerical vector space.</span></div></div>
-        ${source("Conceptual basis: Reimers and Gurevych, Sentence-BERT, EMNLP 2019.")}
-      `)
+      html: slide("Semantic Clustering with Text Embeddings", `
+        <div class="amazon-intuition-layout">
+          <div class="amazon-intuition-copy">
+            <p class="lead" data-editable>An embedding model converts each review into a numerical vector. Reviews with similar meanings receive similar vectors, even when they use different words.</p>
+            <div class="amazon-sentence-pairs">
+              <p data-editable><strong>Sentence 1</strong><br>“The coffee tastes wonderful.”</p>
+              <p data-editable><strong>Sentence 2</strong><br>“I really enjoyed the flavor of this coffee.”</p>
+              <p data-editable><strong>Sentence 3</strong><br>“My dog loves these treats.”</p>
+            </div>
+          </div>
+          <div class="amazon-similarity-panel">
+            <h2 data-editable>Cosine similarity</h2>
+            <div class="similarity-row strong"><span>Sentence 1 and 2</span><b>0.774</b></div>
+            <div class="similarity-row"><span>Sentence 1 and 3</span><b>0.230</b></div>
+            <div class="similarity-row"><span>Sentence 2 and 3</span><b>0.292</b></div>
+            <p data-editable>The two coffee statements are close in meaning. The dog-treat statement is farther away.</p>
+          </div>
+        </div>
+        <p class="amazon-bottom-note" data-editable>The unit of analysis is a review. The output is therefore a set of semantic review clusters, which can reveal recurring needs, product categories, and usage themes.</p>
+        ${source("Source: Uploaded executed notebook, semantic similarity demonstration.")}
+      `, "amazon-intuition-slide")
     },
-    "ai-advantages": {
+    "ai-case": {
       pageNumber: "22",
-      html: slide("Embedding-Based Segmentation Workflow", `
-        <div class="embedding-workflow"><section><strong data-editable>1. Collect</strong><span data-editable>Open-ended responses, reviews, call transcripts, or product descriptions</span></section><b>→</b><section><strong data-editable>2. Embed</strong><span data-editable>Convert each customer’s text into a dense semantic vector</span></section><b>→</b><section><strong data-editable>3. Cluster</strong><span data-editable>Use k-means, hierarchical clustering, or a density-based method</span></section><b>→</b><section><strong data-editable>4. Interpret</strong><span data-editable>Name, profile, and validate the segments against business outcomes</span></section></div><div class="advantage-strip"><span data-editable>Captures meaning beyond exact keywords</span><span data-editable>Uses unstructured data at scale</span><span data-editable>Can complement survey variables</span></div>
-      `)
+      html: slide("Case: Amazon Fine Food Reviews", `
+        <div class="amazon-case-layout">
+          <div class="amazon-case-copy">
+            <p class="lead" data-editable>The case uses a 1,000-review teaching sample from Amazon Fine Food Reviews. The business task is to discover recurring themes without defining categories in advance.</p>
+            <h2 data-editable>Questions for the analysis</h2>
+            <ul class="slide-list" data-editable>
+              <li>Which reviews discuss similar products, needs, or experiences?</li>
+              <li>Can text reveal themes that star ratings alone cannot explain?</li>
+              <li>How should managers interpret and validate the clusters?</li>
+            </ul>
+          </div>
+          <div class="amazon-variable-table">
+            <div class="variable-header"><span>Variable</span><span>Meaning</span></div>
+            <div><strong>Time</strong><span>Unix review timestamp</span></div>
+            <div><strong>ProductId</strong><span>Product identifier</span></div>
+            <div><strong>UserId</strong><span>Reviewer identifier</span></div>
+            <div><strong>Score</strong><span>Star rating from 1 to 5</span></div>
+            <div><strong>Summary</strong><span>Review title</span></div>
+            <div><strong>Text</strong><span>Review body used for embeddings</span></div>
+          </div>
+        </div>
+        ${source("Source: Uploaded fine_food_reviews_1k.csv and executed Week 03 notebook.")}
+      `, "amazon-case-slide")
     },
-    "ai-example": {
+    "ai-colab": {
       pageNumber: "23",
-      html: slide("Example: Embedding MBA Applicants’ Open-Ended Goals", `
-        <div class="embedding-example"><div class="response-column"><h2 data-editable>Applicant responses</h2><p data-editable>“Move into management without leaving my job.”</p><p data-editable>“Change industry and build a new network.”</p><p data-editable>“Gain credibility for a promotion.”</p><p data-editable>“Learn analytics for my current role.”</p></div><div class="mini-map"><span class="cluster-label c1" data-editable>Career mobility</span><span class="cluster-label c2" data-editable>Network changers</span><span class="cluster-label c3" data-editable>Skill builders</span><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><i class="dot d4"></i><i class="dot d5"></i><i class="dot d6"></i></div></div><p class="discussion-question" data-editable>The clusters reveal language and motives that a fixed survey may not anticipate. Managers still need to test whether the groups differ in behavior, value, or response.</p>
-      `)
+      html: slide("Running the Case in Google Colab", `
+        <div class="amazon-colab-layout">
+          <div class="amazon-colab-steps">
+            <section><span>01</span><div><h2 data-editable>Open the notebook</h2><p data-editable>Use the Colab link or upload the .ipynb file to Google Colab.</p></div></section>
+            <section><span>02</span><div><h2 data-editable>Add the data</h2><p data-editable>Upload fine_food_reviews_1k.csv to the same Colab session.</p></div></section>
+            <section><span>03</span><div><h2 data-editable>Run from top to bottom</h2><p data-editable>The first run installs Sentence Transformers and downloads the MiniLM model.</p></div></section>
+          </div>
+          <div class="amazon-colab-code">
+            <div class="notebook-bar"><span></span><span></span><span></span><b data-editable>Google Colab</b></div>
+            <pre><code data-editable>%pip install sentence-transformers
+
+from sentence_transformers import SentenceTransformer
+model = SentenceTransformer(
+    "sentence-transformers/all-MiniLM-L6-v2"
+)</code></pre>
+            <div class="amazon-file-links">
+              <a href="../code/Week03_AI_Frontier_Amazon_Review_Clustering.ipynb" data-editable>Download notebook</a>
+              <a href="../data/week-03-fine-food-reviews-1k.csv" data-editable>Download data</a>
+            </div>
+          </div>
+        </div>
+        <p class="amazon-bottom-note" data-editable>A CPU is sufficient for 1,000 reviews. Keep the random seed unchanged when comparing results in class.</p>
+      `, "amazon-colab-slide")
     },
-    "ai-limitations": {
+    "ai-descriptive-ratings": {
       pageNumber: "24",
-      html: slide("Limits and Validation of Embedding-Based Segmentation", `
-        <div class="limitations"><section><h2 data-editable>Model dependence</h2><p data-editable>Different embedding models and prompts may change the geometry and the clusters.</p></section><section><h2 data-editable>Interpretability</h2><p data-editable>Cluster labels come from human judgment and can oversimplify mixed motives.</p></section><section><h2 data-editable>Bias and privacy</h2><p data-editable>Text can reveal sensitive attributes and reproduce patterns from the training data.</p></section><section><h2 data-editable>Business validity</h2><p data-editable>Semantic separation matters only if segments differ in size, value, needs, or response.</p></section></div><p class="validation-line" data-editable>Validate stability across models and samples, inspect representative responses, and link clusters to observable outcomes.</p>
-      `)
+      html: slide("Sample Overview and Star Ratings", `
+        <div class="amazon-descriptive-layout">
+          <div class="amazon-metrics">
+            <section><strong>1,000</strong><span data-editable>reviews</span></section>
+            <section><strong>708</strong><span data-editable>unique reviewers</span></section>
+            <section><strong>868</strong><span data-editable>unique products</span></section>
+            <section><strong>4.22</strong><span data-editable>mean star rating</span></section>
+          </div>
+          <figure class="amazon-chart"><img src="../../assets/images/cases/week3-amazon-rating-distribution-v1.png" alt="Distribution of Amazon Fine Food Review star ratings"><figcaption data-editable>651 reviews, or 65.1%, have a five-star rating.</figcaption></figure>
+        </div>
+        <p class="discussion-question" data-editable>The sample is strongly positive. Ratings summarize satisfaction, but they do not explain whether customers discuss coffee, pet treats, tea, snacks, price, flavor, or convenience.</p>
+        ${source("Source: Uploaded executed notebook, cells for summary statistics and rating distribution.")}
+      `, "amazon-descriptive-slide")
+    },
+    "ai-descriptive-length": {
+      pageNumber: "25",
+      html: slide("Review Length and Text Preparation", `
+        <div class="amazon-length-layout">
+          <figure class="amazon-chart"><img src="../../assets/images/cases/week3-amazon-review-length-v1.png" alt="Distribution of Amazon Fine Food Review word counts"><figcaption data-editable>Review bodies range from 20 to 517 words.</figcaption></figure>
+          <div class="amazon-length-copy">
+            <div class="length-stat"><strong>67.7</strong><span data-editable>mean words</span></div>
+            <div class="length-stat"><strong>50</strong><span data-editable>median words</span></div>
+            <h2 data-editable>Preparation before embedding</h2>
+            <ol class="compact-steps" data-editable>
+              <li>Decode HTML entities and remove HTML tags.</li>
+              <li>Remove extra whitespace while retaining ordinary words and punctuation.</li>
+              <li>Combine the review title and body into one text field.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="amazon-bottom-note" data-editable>Longer reviews contain more detail, but length alone does not identify the meaning of the review.</p>
+        ${source("Source: Uploaded executed notebook, review-length output and text-cleaning cell.")}
+      `, "amazon-length-slide")
+    },
+    "ai-embedding-code": {
+      pageNumber: "26",
+      html: slide("From Review Text to Embeddings", `
+        <div class="amazon-code-layout">
+          <pre class="amazon-code-block"><code data-editable>model = SentenceTransformer(
+    "sentence-transformers/all-MiniLM-L6-v2"
+)
+
+embeddings = model.encode(
+    df["review_text"].tolist(),
+    batch_size=32,
+    normalize_embeddings=True,
+    convert_to_numpy=True
+)</code></pre>
+          <div class="amazon-code-explanation">
+            <section><strong>1,000 × 384</strong><p data-editable>One row per review and 384 embedding coordinates.</p></section>
+            <section><strong>Normalized vectors</strong><p data-editable>The dot product becomes cosine similarity.</p></section>
+            <section><strong>Meaning before clustering</strong><p data-editable>The pretrained model supplies the semantic representation. K-means operates on those vectors.</p></section>
+          </div>
+        </div>
+        <p class="amazon-bottom-note" data-editable>The 384 coordinates do not have direct managerial labels. Interpretation happens after clustering by reading representative reviews.</p>
+        ${source("Source: Uploaded notebook, model-loading and embedding cells.")}
+      `, "amazon-code-slide")
+    },
+    "ai-clustering": {
+      pageNumber: "27",
+      html: slide("K-means Clustering in the Embedding Space", `
+        <div class="amazon-cluster-layout">
+          <div>
+            <pre class="amazon-code-block small"><code data-editable>K = 4
+kmeans = KMeans(
+    n_clusters=K,
+    random_state=SEED,
+    n_init=10
+)
+df["Cluster"] = kmeans.fit_predict(embeddings) + 1</code></pre>
+            <p class="amazon-code-caption" data-editable>K-means uses all 384 dimensions. Ratings, product IDs, and manual keywords are not inputs.</p>
+          </div>
+          <div class="amazon-cluster-table">
+            <div class="cluster-table-head"><span>Cluster</span><span>Reviews</span><span>Share</span></div>
+            <div><strong>1</strong><span>138</span><span>13.8%</span></div>
+            <div><strong>2</strong><span>180</span><span>18.0%</span></div>
+            <div><strong>3</strong><span>453</span><span>45.3%</span></div>
+            <div><strong>4</strong><span>229</span><span>22.9%</span></div>
+            <p data-editable><strong>Silhouette score: 0.053.</strong> The semantic themes overlap, so the clusters require careful interpretation.</p>
+          </div>
+        </div>
+        ${source("Source: Uploaded executed notebook, K-means cell and cluster-size output.")}
+      `, "amazon-cluster-slide")
+    },
+    "ai-pca": {
+      pageNumber: "28",
+      html: slide("PCA View of the Four Review Clusters", `
+        <div class="amazon-pca-layout">
+          <figure><img src="../../assets/images/cases/week3-amazon-pca-clusters-v1.png" alt="PCA projection of four Amazon review clusters"><figcaption data-editable>Notebook output, execution count 13.</figcaption></figure>
+          <div class="amazon-pca-copy">
+            <h2 data-editable>How to read the figure</h2>
+            <ul class="slide-list" data-editable>
+              <li>K-means formed the clusters in the full 384-dimensional space.</li>
+              <li>PCA was applied afterward to display the reviews on two dimensions.</li>
+              <li>PC 1 and PC 2 capture only 11.8% of total variance.</li>
+              <li>Visible overlap does not mean that the 384-dimensional vectors are identical.</li>
+            </ul>
+          </div>
+        </div>
+      `, "amazon-pca-slide")
+    },
+    "ai-cluster-profiles": {
+      pageNumber: "29",
+      html: slide("Interpreting the Four Semantic Clusters", `
+        <div class="amazon-profile-grid">
+          <section><span class="cluster-chip c1">Cluster 1</span><h2 data-editable>Dog treats and pet food</h2><p data-editable><strong>138 reviews, 13.8%</strong><br>Mean rating 4.18<br>Representative reviews discuss ingredients, chewing, quality, and value for pets.</p></section>
+          <section><span class="cluster-chip c2">Cluster 2</span><h2 data-editable>Coffee and K-Cups</h2><p data-editable><strong>180 reviews, 18.0%</strong><br>Mean rating 4.16<br>Representative reviews discuss coffee strength, espresso, brewing, and pod formats.</p></section>
+          <section><span class="cluster-chip c3">Cluster 3</span><h2 data-editable>Snacks and pantry foods</h2><p data-editable><strong>453 reviews, 45.3%</strong><br>Mean rating 4.15<br>Representative reviews discuss taste, price, family use, delivery, and convenient snacks.</p></section>
+          <section><span class="cluster-chip c4">Cluster 4</span><h2 data-editable>Tea and sweeteners</h2><p data-editable><strong>229 reviews, 22.9%</strong><br>Mean rating 4.42<br>Representative reviews discuss tea flavor, brewing, refreshment, and sweeteners.</p></section>
+        </div>
+        <p class="amazon-bottom-note" data-editable>These names come from reading reviews closest to each centroid. K-means returns cluster numbers, not managerial labels.</p>
+        ${source("Source: Uploaded notebook outputs for cluster profiles and representative reviews.")}
+      `, "amazon-profile-slide")
     },
     "week3-takeaways": {
-      pageNumber: "25",
+      pageNumber: "30",
       html: slide("Takeaways", `
         <ol class="takeaways-list">
-          <li><span>01</span><p data-editable>The framework connects market inputs with segmentation, targeting, positioning, and customer centricity.</p></li>
-          <li><span>02</span><p data-editable>The INSEAD Boats case begins with 29 attitude items from 2,813 respondents.</p></li>
-          <li><span>03</span><p data-editable>KMO and Bartlett’s test support factor analysis. The scree plot suggests a five-factor starting solution.</p></li>
-          <li><span>04</span><p data-editable>Embeddings extend segmentation to unstructured text, but managers must validate stability and business relevance.</p></li>
+          <li><span>01</span><p data-editable>The Boats workshop uses factor analysis to reduce structured survey items before segmentation.</p></li>
+          <li><span>02</span><p data-editable>Text embeddings provide a numerical representation of meaning for unstructured customer reviews.</p></li>
+          <li><span>03</span><p data-editable>K-means identified four overlapping review themes in the 384-dimensional embedding space.</p></li>
+          <li><span>04</span><p data-editable>PCA supports visualization, but the two plotted dimensions capture only 11.8% of total variance.</p></li>
+          <li><span>05</span><p data-editable>Managers must name clusters from representative reviews and test whether the themes support useful marketing decisions.</p></li>
         </ol>
-      `, "takeaways-slide")
+      `, "takeaways-slide takeaways-five")
     },
     "70": {
       pageNumber: "12",

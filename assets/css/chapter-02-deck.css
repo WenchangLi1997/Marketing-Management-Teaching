@@ -782,6 +782,103 @@ body {
 .limitations p { font-size: 15px; line-height: 1.22; }
 .validation-line { margin-top: 16px !important; color: #14374d; text-align: center; font-size: 16px; }
 
+/* Week 3 AI Frontier: Amazon Fine Food Reviews */
+.amazon-intuition-layout { display: grid; grid-template-columns: 1.12fr .88fr; gap: 28px; height: 294px; }
+.amazon-intuition-copy .lead { margin-bottom: 16px; font-size: 18px; line-height: 1.22; }
+.amazon-sentence-pairs { display: grid; gap: 9px; }
+.amazon-sentence-pairs p { padding: 9px 12px; border-left: 4px solid #173f63; background: #f3f5f6; font-size: 14px; line-height: 1.16; }
+.amazon-sentence-pairs strong { color: #173f63; }
+.amazon-similarity-panel { padding: 18px 19px; border-top: 5px solid #173f63; background: #f3f5f6; }
+.amazon-similarity-panel h2 { margin-bottom: 14px; color: #173f63; }
+.similarity-row { display: grid; grid-template-columns: 1fr 58px; align-items: center; margin-bottom: 9px; padding: 10px 11px; background: #fff; font-size: 14px; }
+.similarity-row b { color: #173f63; font-size: 18px; text-align: right; }
+.similarity-row.strong { border-left: 4px solid #173f63; }
+.amazon-similarity-panel > p { margin-top: 14px; color: #4d565b; font-size: 13.5px; line-height: 1.2; }
+.amazon-bottom-note { margin-top: 14px !important; padding: 10px 13px; border-left: 4px solid #173f63; background: #f3f5f6; color: #173f63; font-size: 14px; line-height: 1.18; }
+
+.amazon-case-layout { display: grid; grid-template-columns: 1fr 1.03fr; gap: 30px; height: 350px; }
+.amazon-case-copy .lead { margin-bottom: 20px; font-size: 18px; line-height: 1.25; }
+.amazon-case-copy h2 { color: #173f63; }
+.amazon-case-copy .slide-list li { margin-bottom: 10px; font-size: 15px; line-height: 1.18; }
+.amazon-variable-table { display: grid; grid-template-rows: repeat(7, 1fr); border-top: 5px solid #173f63; background: #f3f5f6; }
+.amazon-variable-table > div { display: grid; grid-template-columns: 112px 1fr; align-items: center; padding: 0 15px; border-bottom: 1px solid #d5dadd; font-size: 14px; }
+.amazon-variable-table strong { color: #173f63; }
+.amazon-variable-table .variable-header { color: #fff; background: #173f63; font-weight: 700; }
+
+.amazon-colab-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; height: 305px; }
+.amazon-colab-steps { display: grid; gap: 12px; }
+.amazon-colab-steps section { display: grid; grid-template-columns: 44px 1fr; align-items: center; min-height: 86px; padding: 12px 14px; border-left: 4px solid #173f63; background: #f3f5f6; }
+.amazon-colab-steps section > span { color: #173f63; font-size: 21px; font-weight: 700; }
+.amazon-colab-steps h2 { margin-bottom: 4px; color: #173f63; font-size: 19px; }
+.amazon-colab-steps p { color: #4d565b; font-size: 13.5px; line-height: 1.17; }
+.amazon-colab-code { overflow: hidden; border: 1px solid #c7cdd0; background: #fff; }
+.notebook-bar { display: flex; align-items: center; gap: 7px; height: 36px; padding: 0 12px; color: #fff; background: #173f63; }
+.notebook-bar span { width: 9px; height: 9px; border-radius: 50%; background: #fff; opacity: .72; }
+.notebook-bar b { margin-left: 8px; font-size: 14px; }
+.amazon-colab-code pre { height: 202px; margin: 0; padding: 17px 18px; overflow: hidden; background: #f5f6f7; color: #172f44; font: 14px/1.34 var(--font); white-space: pre-wrap; }
+.amazon-file-links { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #c7cdd0; }
+.amazon-file-links a { padding: 12px 8px; color: #173f63; background: #fff; text-align: center; text-decoration: none; font-size: 13px; font-weight: 700; }
+.amazon-file-links a:hover { text-decoration: underline; }
+
+.amazon-descriptive-layout { display: grid; grid-template-columns: 188px 1fr; gap: 24px; align-items: stretch; height: 276px; }
+.amazon-metrics { display: grid; grid-template-rows: repeat(4, 1fr); gap: 8px; }
+.amazon-metrics section { display: grid; align-content: center; padding: 8px 13px; border-left: 4px solid #173f63; background: #f3f5f6; }
+.amazon-metrics strong { color: #173f63; font-size: 25px; line-height: 1; }
+.amazon-metrics span { margin-top: 4px; color: #4d565b; font-size: 13px; }
+.amazon-chart { margin: 0; }
+.amazon-chart img { display: block; width: 100%; height: 248px; object-fit: contain; }
+.amazon-chart figcaption { margin-top: 5px; color: #5f686d; font-size: 11px; text-align: center; }
+.amazon-descriptive-slide .discussion-question { margin-top: 13px; font-size: 14.5px; line-height: 1.2; }
+
+.amazon-length-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; height: 304px; }
+.amazon-length-layout .amazon-chart img { height: 270px; }
+.amazon-length-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; align-content: start; }
+.length-stat { padding: 12px 14px; border-top: 4px solid #173f63; background: #f3f5f6; }
+.length-stat strong, .length-stat span { display: block; }
+.length-stat strong { color: #173f63; font-size: 25px; }
+.length-stat span { color: #4d565b; font-size: 13px; }
+.amazon-length-copy h2 { grid-column: 1 / 3; margin: 5px 0 2px; color: #173f63; }
+.compact-steps { grid-column: 1 / 3; margin: 0; padding-left: 22px; }
+.compact-steps li { margin-bottom: 10px; padding-left: 4px; font-size: 14px; line-height: 1.18; }
+
+.amazon-code-layout { display: grid; grid-template-columns: 1.13fr .87fr; gap: 25px; height: 300px; }
+.amazon-code-block { margin: 0; padding: 18px 20px; overflow: hidden; border-top: 5px solid #173f63; background: #f3f5f6; color: #172f44; font: 14px/1.38 var(--font); white-space: pre-wrap; }
+.amazon-code-block.small { height: 224px; font-size: 13.5px; line-height: 1.35; }
+.amazon-code-explanation { display: grid; gap: 11px; }
+.amazon-code-explanation section { padding: 13px 15px; border-left: 4px solid #173f63; background: #f3f5f6; }
+.amazon-code-explanation strong { display: block; margin-bottom: 4px; color: #173f63; font-size: 18px; }
+.amazon-code-explanation p { color: #4d565b; font-size: 13.5px; line-height: 1.16; }
+
+.amazon-cluster-layout { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; height: 330px; }
+.amazon-code-caption { margin-top: 12px !important; color: #4d565b; font-size: 13.5px; line-height: 1.18; }
+.amazon-cluster-table { display: grid; grid-template-rows: 43px repeat(4, 43px) 1fr; border-top: 5px solid #173f63; background: #f3f5f6; }
+.amazon-cluster-table > div { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; padding: 0 14px; border-bottom: 1px solid #d5dadd; text-align: center; font-size: 14px; }
+.amazon-cluster-table .cluster-table-head { color: #fff; background: #173f63; font-weight: 700; }
+.amazon-cluster-table strong { color: #173f63; }
+.amazon-cluster-table > p { align-self: center; margin: 0 15px; color: #173f63; font-size: 13px; line-height: 1.18; }
+
+.amazon-pca-layout { display: grid; grid-template-columns: 1.28fr .72fr; gap: 25px; align-items: center; height: 355px; }
+.amazon-pca-layout figure { height: 350px; margin: 0; }
+.amazon-pca-layout figure img { display: block; width: 100%; height: 326px; object-fit: contain; }
+.amazon-pca-layout figcaption { color: #5f686d; font-size: 10.5px; text-align: center; }
+.amazon-pca-copy { padding: 17px 18px; border-left: 4px solid #173f63; background: #f3f5f6; }
+.amazon-pca-copy h2 { color: #173f63; }
+.amazon-pca-copy .slide-list li { margin-bottom: 12px; font-size: 14px; line-height: 1.18; }
+
+.amazon-profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px 18px; height: 302px; }
+.amazon-profile-grid section { padding: 13px 15px; border-left: 4px solid #173f63; background: #f3f5f6; }
+.amazon-profile-grid h2 { margin: 7px 0 6px; color: #173f63; font-size: 19px; }
+.amazon-profile-grid p { color: #424b50; font-size: 13px; line-height: 1.17; }
+.cluster-chip { display: inline-block; padding: 4px 8px; color: #fff; font-size: 11px; font-weight: 700; }
+.cluster-chip.c1 { background: #2878b5; }.cluster-chip.c2 { background: #e77f24; }.cluster-chip.c3 { background: #35a34a; }.cluster-chip.c4 { background: #d94b4b; }
+.amazon-case-slide .slide-source,
+.amazon-code-slide .slide-source,
+.amazon-pca-slide .slide-source { z-index: 20; background: #fff; }
+
+.takeaways-five .takeaways-list li { min-height: 60px; padding: 10px 0; }
+.takeaways-five .takeaways-list li p { font-size: 14.5px; line-height: 1.18; }
+.takeaways-five .takeaways-list li span { font-size: 18px; }
+
 .homework-intro { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 40px; align-items: center; height: 335px; }
 .homework-badge { display: grid; min-height: 210px; place-items: center; padding: 25px; color: #fff; background: #163f63; text-align: center; font-size: 23px; line-height: 1.35; }
 .homework-case { max-width: 610px; margin: 12px auto 0; }
