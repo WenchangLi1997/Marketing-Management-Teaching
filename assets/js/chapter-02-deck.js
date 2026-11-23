@@ -2,6 +2,7 @@
   "use strict";
 
   const deck = document.getElementById("deck");
+  const week = deck.dataset.week || "";
   const source = new Map(window.chapter2Content.slides.map(slide => [String(slide.number), slide]));
   const revisions = window.chapter2Revisions || {};
   const fontStack = '"Garamond", "EB Garamond", Georgia, serif';
@@ -210,6 +211,12 @@
     progressValue.style.width = `${((index + 1) / slideKeys.length) * 100}%`;
     progress.append(progressValue);
     canvas.append(progress);
+
+    const courseFooter = document.createElement("div");
+    courseFooter.className = "course-week-footer";
+    courseFooter.textContent = `SMU MiM · Marketing · Week ${week}`;
+    courseFooter.setAttribute("aria-hidden", "true");
+    canvas.append(courseFooter);
 
     const pageNumber = document.createElement("div");
     pageNumber.className = "slide-number";
