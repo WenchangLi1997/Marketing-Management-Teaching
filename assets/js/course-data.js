@@ -11,6 +11,10 @@ window.courseData = {
         "Course orientation and an overview of the four recurring marketing problems. The session also introduces the role of analytics and provides a short SPSS warm-up.",
       ai: "Brief overview of AI in marketing",
       resources: {
+        slides: [
+          { label: "Web", url: "./materials/slides/week-01-introduction.html" },
+          { label: "PDF", url: "./materials/slides/week-01-introduction.pdf" },
+        ],
         other: [
           { label: "SPSS learning resources", url: "https://www.ibm.com/products/spss-statistics/resources" },
           { label: "Python tutorial", url: "https://docs.python.org/3/tutorial/" },
